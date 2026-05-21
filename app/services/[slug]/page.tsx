@@ -8,6 +8,7 @@ import {
   Settings2, FileText, Link2, MapPin, Globe, Search,
   PenTool, BookOpen, LayoutGrid, Briefcase, Lightbulb, Package,
   ShieldAlert, HardDrive, RefreshCw, Phone, BarChart2,
+  AppWindow, Monitor, LayoutDashboard, HelpCircle, Database,
   type LucideProps,
 } from "lucide-react";
 import type { ComponentType } from "react";
@@ -26,6 +27,7 @@ const ICON_MAP: Record<string, ComponentType<LucideProps>> = {
   Settings2, FileText, Link2, MapPin, Globe, Search,
   PenTool, BookOpen, LayoutGrid, Briefcase, Lightbulb, Package,
   ShieldAlert, HardDrive, RefreshCw, Phone, BarChart2,
+  AppWindow, Monitor, LayoutDashboard, HelpCircle, Database,
 };
 
 export function generateStaticParams() {
@@ -47,7 +49,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const svc = getService(slug);
   if (!svc) notFound();
 
-  const isBranding = svc.slug === "branding";
+  const isBranding = svc.slug === "brand-ui-design";
 
   return (
     <>

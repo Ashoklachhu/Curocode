@@ -17,7 +17,6 @@ export interface ServiceData {
   faq: ServiceFAQ[];
 }
 
-// All services share the same brand accent — indigo → purple
 const ACCENT = {
   from: "from-indigo-600", to: "to-purple-600",
   text: "text-indigo-400",
@@ -26,202 +25,119 @@ const ACCENT = {
 };
 
 export const SERVICES: ServiceData[] = [
-  /* ── 1. WEB SOLUTIONS ─────────────────────────────── */
+
+  /* ── 1. WEB & APP DEVELOPMENT ──────────────────────── */
   {
-    slug: "web-solutions",
-    title: "Web Solutions",
-    category: "Design & Development",
-    tagline: "Websites That Work While You Sleep",
+    slug: "web-app-development",
+    title: "Web & App Development",
+    category: "Development & Engineering",
+    tagline: "Custom-Built for Your Business. Engineered to Scale.",
     description:
-      "We build high-performance websites and web applications that don't just look great — they convert visitors into paying customers. Every pixel is intentional, every interaction is optimised for your UAE audience.",
+      "We design and engineer custom websites, client portals, and web applications tailored precisely to your business needs — not off-the-shelf templates. Every build is fast, secure, and built to grow with you.",
     accent: ACCENT,
     heroStats: [
-      { value: "3x",   label: "Average conversion lift" },
+      { value: "30d",  label: "Average project delivery" },
       { value: "<1s",  label: "Load time target" },
       { value: "100",  label: "Google PageSpeed score" },
-      { value: "30d",  label: "Average delivery" },
+      { value: "3x",   label: "Average conversion lift" },
     ],
     features: [
-      { icon: "Zap",          title: "Lightning Fast",       desc: "Sub-second load times, optimised Core Web Vitals, CDN-deployed globally so UAE visitors get instant experiences." },
-      { icon: "Smartphone",   title: "Mobile-First Design",  desc: "Over 70% of UAE traffic is mobile. We design for the small screen first, then scale up — never the other way around." },
-      { icon: "Palette",      title: "Premium UI/UX",        desc: "Bespoke designs that reflect your brand. No templates, no shortcuts. Every screen crafted for maximum impact." },
-      { icon: "Plug",         title: "CMS Integration",      desc: "Update your own content without a developer. We integrate headless CMS so your team stays in control." },
-      { icon: "ShoppingCart", title: "E-Commerce Ready",     desc: "Full e-commerce builds with payment gateways, inventory, Arabic language support, and UAE VAT compliance." },
-      { icon: "ShieldCheck",  title: "Secure & Scalable",    desc: "SSL, GDPR-ready, regular security audits. Built to handle traffic spikes from your marketing campaigns." },
+      { icon: "Monitor",         title: "Custom Websites",         desc: "Bespoke business websites designed around your brand, goals, and audience — built to convert visitors into customers." },
+      { icon: "LayoutDashboard", title: "Portals & Dashboards",    desc: "Client portals, internal dashboards, and admin panels built with real-time data, role-based access, and clean UX." },
+      { icon: "AppWindow",       title: "Web Applications",        desc: "Complex web apps with custom logic, database architecture, API integrations, and scalable cloud infrastructure." },
+      { icon: "Smartphone",      title: "Mobile-First Engineering", desc: "Every build starts on mobile. Responsive, touch-optimised, and tested across all devices and screen sizes." },
+      { icon: "Plug",            title: "Third-Party Integrations", desc: "CRMs, payment gateways, ERPs, and APIs — we connect your web build to the tools your business already uses." },
+      { icon: "ShieldCheck",     title: "Security & Performance",  desc: "SSL, OWASP-compliant code, automated backups, and performance monitoring built in from day one." },
     ],
     process: [
-      { num: "01", title: "Discovery Call",     desc: "We learn your business, goals, competitors, and target audience. Outcome: a clear project brief and timeline." },
-      { num: "02", title: "Design & Prototype", desc: "High-fidelity wireframes and interactive mockups. You see exactly what you're getting before a line of code is written." },
-      { num: "03", title: "Development",        desc: "Built with Next.js, optimised for speed and SEO. Daily updates so you're never in the dark." },
-      { num: "04", title: "Launch & Optimise",  desc: "We launch, monitor, and iterate. A/B test key pages in the first 30 days to maximise your conversion rate." },
+      { num: "01", title: "Discovery & Scoping",  desc: "We define your requirements, user flows, and technical architecture. You get a clear brief, timeline, and fixed price." },
+      { num: "02", title: "Design & Prototype",   desc: "High-fidelity mockups for every screen. You approve the exact look and feel before development begins." },
+      { num: "03", title: "Build & Test",         desc: "Developed in sprints with daily updates. Rigorous QA testing across browsers, devices, and performance benchmarks." },
+      { num: "04", title: "Launch & Handover",    desc: "We deploy, monitor live performance, and hand over full documentation. Your team is trained and ready to manage it." },
     ],
     results: [
       { value: "215%", label: "Average lead increase post-launch" },
       { value: "47%",  label: "Drop in bounce rate" },
-      { value: "3.2x", label: "ROAS on paid traffic" },
+      { value: "30d",  label: "Average delivery from kickoff" },
     ],
     faq: [
-      { q: "How long does a website take?",         a: "A standard business website takes 3–4 weeks. E-commerce or custom web apps take 6–10 weeks depending on complexity." },
-      { q: "Do you support Arabic language?",       a: "Yes — full RTL layout, Arabic typography, and bilingual content management is included on all projects." },
-      { q: "What's included after launch?",         a: "30 days of free bug fixes and tweaks. After that, our maintenance retainer covers updates, backups, and monitoring." },
-      { q: "Can I update the website myself?",      a: "Absolutely. We set up a user-friendly CMS and provide a training session so your team can manage content independently." },
+      { q: "Do you build custom or use templates?",    a: "Always custom. We never use templates — every website and app is engineered specifically for your business and goals." },
+      { q: "Can you build in Arabic?",                 a: "Yes — full RTL layout, Arabic typography, and bilingual content management is standard on all UAE projects." },
+      { q: "Who owns the code after delivery?",        a: "You do. Full source code handover, no licensing, no lock-in. It's yours completely." },
+      { q: "Do you offer post-launch support?",        a: "Yes — 30 days of free fixes post-launch. For ongoing support, our Smart Support System plan covers everything." },
     ],
   },
 
-  /* ── 2. AI AUTOMATION ─────────────────────────────── */
+  /* ── 2. AI AUTOMATION ──────────────────────────────── */
   {
     slug: "ai-automation",
     title: "AI Automation",
-    category: "Artificial Intelligence",
-    tagline: "Let AI Handle the Repetitive. You Focus on Growth.",
+    category: "Autonomous Systems",
+    tagline: "Smart Workflows That Run Your Business on Autopilot.",
     description:
-      "We build intelligent automation systems that eliminate manual work, reduce operational costs, and let your team focus on high-value tasks. From WhatsApp AI agents to full workflow automation — we make AI work for your specific business.",
+      "We build intelligent automation systems that eliminate manual work, cut costs, and let your team focus on what actually matters. From AI-powered lead handling to fully autonomous business workflows — we make your operations run themselves.",
     accent: ACCENT,
     heroStats: [
-      { value: "80%", label: "Reduction in manual tasks" },
-      { value: "24/7", label: "AI works around the clock" },
+      { value: "80%",  label: "Reduction in manual tasks" },
+      { value: "24/7", label: "Systems run around the clock" },
       { value: "60d",  label: "Average time to go live" },
       { value: "4x",   label: "Team productivity boost" },
     ],
     features: [
-      { icon: "MessageCircle", title: "WhatsApp AI Agent",       desc: "Automatically qualify leads, answer FAQs, book appointments, and follow up via WhatsApp — in Arabic and English." },
-      { icon: "GitBranch",     title: "Workflow Automation",     desc: "Connect your CRM, email, calendar, and tools. Triggers fire automatically so nothing falls through the cracks." },
-      { icon: "BarChart3",     title: "AI Reporting Dashboards", desc: "Real-time dashboards that pull data from all your platforms and surface the insights that actually matter." },
-      { icon: "Mail",          title: "Email & Follow-Up AI",    desc: "Personalised follow-up sequences triggered by behaviour — website visit, form fill, or inactivity." },
-      { icon: "Bot",           title: "Custom AI Assistants",    desc: "Train a GPT-powered assistant on your business knowledge. Answer customer queries instantly, at scale." },
-      { icon: "Layers",        title: "System Integrations",     desc: "We connect Zoho, Salesforce, HubSpot, Slack, Google Workspace, QuickBooks and 200+ other tools via API." },
+      { icon: "MessageCircle", title: "WhatsApp AI Agent",       desc: "Automatically qualify leads, answer FAQs, book appointments, and follow up via WhatsApp in Arabic and English — 24/7." },
+      { icon: "GitBranch",     title: "Business Workflow Bots",  desc: "Map any business process — lead handling, invoicing, onboarding — and we automate it end-to-end with zero manual input." },
+      { icon: "Bot",           title: "Custom AI Assistants",    desc: "Train a GPT-powered assistant on your business knowledge. Instant, accurate answers for staff and customers at scale." },
+      { icon: "Mail",          title: "Autonomous Follow-Up",    desc: "Behaviour-triggered email and WhatsApp sequences that nurture leads automatically — from first touch to closed deal." },
+      { icon: "BarChart3",     title: "Automated Reporting",     desc: "Real-time dashboards and scheduled AI reports that surface the numbers you need without manual data pulling." },
+      { icon: "Layers",        title: "Deep System Integrations",desc: "Seamlessly connect Zoho, HubSpot, Salesforce, Slack, Google Workspace, QuickBooks, and 200+ tools via smart API bridges." },
     ],
     process: [
-      { num: "01", title: "Process Audit",     desc: "We map your current workflows, identify the highest-ROI automation opportunities, and prioritise by impact." },
-      { num: "02", title: "Solution Design",   desc: "Blueprint of every automation, trigger, and integration. You approve the logic before we build anything." },
-      { num: "03", title: "Build & Integrate", desc: "We build, connect, and test every automation in a staging environment before touching your live systems." },
-      { num: "04", title: "Monitor & Improve", desc: "Ongoing monitoring, error handling, and monthly optimisations to keep your automations running perfectly." },
+      { num: "01", title: "Process Mapping",     desc: "We audit your current workflows, identify the highest-value automation opportunities, and rank them by ROI and effort." },
+      { num: "02", title: "Automation Blueprint", desc: "Full logic map of every trigger, action, and integration. You review and approve everything before we build." },
+      { num: "03", title: "Build & Integrate",   desc: "Built and stress-tested in staging. We connect every system and run end-to-end tests before touching your live environment." },
+      { num: "04", title: "Monitor & Improve",   desc: "24/7 monitoring with error handling. Monthly optimisation reviews to keep every automation running at peak performance." },
     ],
     results: [
       { value: "80%",  label: "Reduction in manual data entry" },
-      { value: "6hrs", label: "Saved per team member daily" },
-      { value: "2min", label: "Average lead response time (was 6hrs)" },
+      { value: "6hrs", label: "Saved per team member every day" },
+      { value: "2min", label: "Lead response time (was 6 hours)" },
     ],
     faq: [
-      { q: "Do I need technical knowledge?",     a: "Zero. We handle all the technical setup. You just describe the process you want automated and we build it." },
-      { q: "Which tools do you integrate with?", a: "200+ tools including WhatsApp Business API, Zoho, Salesforce, HubSpot, Slack, Google Workspace, and custom APIs." },
-      { q: "How long before I see ROI?",         a: "Most clients recover the investment within 60–90 days through time saved and leads that no longer slip through the cracks." },
-      { q: "Is my data secure?",                 a: "Yes. All automations use encrypted API connections. We never store sensitive customer data on third-party servers." },
+      { q: "Do I need technical knowledge to get started?", a: "None at all. You describe how your business works — we handle every technical aspect of building the automation." },
+      { q: "Which tools can you connect to?",               a: "200+ tools including WhatsApp Business API, Zoho, HubSpot, Salesforce, Slack, Google Workspace, and custom APIs." },
+      { q: "How quickly will I see ROI?",                   a: "Most clients recover the investment within 60–90 days through time saved and opportunities no longer missed." },
+      { q: "Is my business data safe?",                     a: "Yes. All integrations use encrypted API connections. We never store sensitive data on third-party servers." },
     ],
   },
 
-  /* ── 3. DIGITAL MARKETING ─────────────────────────── */
+  /* ── 3. BRAND & UI DESIGN ──────────────────────────── */
   {
-    slug: "digital-marketing",
-    title: "Digital Marketing",
-    category: "Performance Marketing",
-    tagline: "Every Dirham Spent Should Come Back With Friends.",
+    slug: "brand-ui-design",
+    title: "Brand & UI Design",
+    category: "Design & Identity",
+    tagline: "Design That Communicates Before Words Do.",
     description:
-      "Data-driven marketing campaigns that fill your pipeline with qualified leads. We run Google, Meta, TikTok, and Snapchat ads built specifically for the UAE market — with creatives, targeting, and copy that converts.",
+      "We build premium brand identities and UI design systems that make your business look world-class at every touchpoint. From your logo to your product interface — every element is intentional, cohesive, and built to convert.",
     accent: ACCENT,
     heroStats: [
-      { value: "3.2x",  label: "Average ROAS achieved" },
-      { value: "47%",   label: "Lower cost per lead" },
-      { value: "215%",  label: "Lead volume increase" },
-      { value: "7d",    label: "Campaign launch time" },
-    ],
-    features: [
-      { icon: "Target",     title: "Google Ads",            desc: "Search, Display, Performance Max, and YouTube campaigns. We capture buyers at every stage of the funnel." },
-      { icon: "ImageIcon",  title: "Meta Ads",              desc: "Facebook and Instagram campaigns with scroll-stopping creatives. Laser-targeted to your ideal UAE customer profile." },
-      { icon: "Play",       title: "TikTok & Snapchat",    desc: "Reach younger UAE demographics with native-feel short-form video ads that don't feel like ads." },
-      { icon: "TrendingUp", title: "Full-Funnel Strategy",  desc: "Awareness → Consideration → Conversion → Retention. We cover every stage so leads don't leak from your funnel." },
-      { icon: "Wand2",      title: "Creative Production",   desc: "Ad creatives, copy, and video in Arabic and English. Built on data — not guesswork — and updated weekly." },
-      { icon: "LineChart",  title: "Analytics & Reporting", desc: "Weekly performance reports with plain-English insights. You always know exactly what's working and what we're testing." },
-    ],
-    process: [
-      { num: "01", title: "Market Research",   desc: "Competitor analysis, audience deep-dive, keyword research. We know your market before spending a single dirham." },
-      { num: "02", title: "Campaign Strategy", desc: "Full funnel blueprint: platforms, budgets, audiences, creatives, and KPIs. Agreed before launch." },
-      { num: "03", title: "Launch & Optimise", desc: "Campaigns go live with daily optimisation in week one. We test aggressively and scale what works." },
-      { num: "04", title: "Scale & Retain",    desc: "Once profitable campaigns are identified, we scale budgets and introduce retargeting to maximise LTV." },
-    ],
-    results: [
-      { value: "AED 3.2", label: "Revenue per AED 1 spent" },
-      { value: "47%",     label: "Avg. cost-per-lead reduction" },
-      { value: "215%",    label: "Lead volume growth in 60 days" },
-    ],
-    faq: [
-      { q: "What's the minimum ad budget?",    a: "We recommend a minimum of AED 5,000/month ad spend. Our management fee is separate and scales with spend." },
-      { q: "How quickly will I see results?",  a: "Initial data within 7 days. Optimised performance typically kicks in by week 3–4 as we accumulate signal." },
-      { q: "Do you create the ads or do I?",   a: "We handle everything — strategy, copywriting, creative design, and video production in both Arabic and English." },
-      { q: "Can I pause anytime?",             a: "Yes. We work on monthly rolling contracts. No lock-in, no penalty. We keep clients because results speak for themselves." },
-    ],
-  },
-
-  /* ── 4. SEO & GROWTH ──────────────────────────────── */
-  {
-    slug: "seo-growth",
-    title: "SEO & Growth",
-    category: "Organic Growth",
-    tagline: "Rank Higher. Get Found. Grow Without Paying Per Click.",
-    description:
-      "Sustainable organic growth that compounds over time. We optimise your website for Google UAE search, build authority, and create content that attracts your ideal customers — without depending on ad spend forever.",
-    accent: ACCENT,
-    heroStats: [
-      { value: "Top 3", label: "Google rankings target" },
-      { value: "6mo",   label: "Avg. time to page 1" },
-      { value: "300%",  label: "Organic traffic increase" },
-      { value: "0",     label: "Cost per organic click" },
-    ],
-    features: [
-      { icon: "Settings2", title: "Technical SEO",       desc: "Site speed, Core Web Vitals, crawlability, structured data, and mobile optimisation — the foundation everything else builds on." },
-      { icon: "FileText",  title: "Content Strategy",    desc: "Keyword-led content that answers what your customers are actually searching for in UAE Google." },
-      { icon: "Link2",     title: "Link Building",       desc: "High-quality backlinks from UAE and regional publications that build your domain authority over time." },
-      { icon: "MapPin",    title: "Local SEO",           desc: "Google Business Profile optimisation, local citations, and review management to dominate Dubai, Abu Dhabi, and UAE local search." },
-      { icon: "Globe",     title: "Arabic SEO",          desc: "Arabic keyword research and bilingual content strategy to capture the significant Arabic-language search market in UAE." },
-      { icon: "Search",    title: "Competitor Analysis", desc: "Monthly analysis of what your top competitors are doing — so we're always one step ahead." },
-    ],
-    process: [
-      { num: "01", title: "SEO Audit",          desc: "Full technical audit, keyword gap analysis, and competitor mapping. Your current position clearly defined." },
-      { num: "02", title: "Keyword Strategy",   desc: "We identify the highest-value, most achievable keywords for your business and map them to pages." },
-      { num: "03", title: "On-Page & Technical",desc: "We fix every technical issue and optimise every page. Content updated to match search intent perfectly." },
-      { num: "04", title: "Authority Building", desc: "Monthly content creation and link building to steadily grow your domain rating and organic rankings." },
-    ],
-    results: [
-      { value: "300%", label: "Organic traffic increase (12 months)" },
-      { value: "#1",   label: "Rankings achieved for competitive terms" },
-      { value: "60%",  label: "Reduction in paid ad dependency" },
-    ],
-    faq: [
-      { q: "How long does SEO take to work?",       a: "Honest answer: 3–6 months for meaningful movement, 6–12 months for significant results. SEO is a long-term investment." },
-      { q: "Do you guarantee first page rankings?", a: "No one can guarantee specific rankings — Google's algorithm is unpredictable. We guarantee consistent effort, transparency, and proven methods." },
-      { q: "Do you do Arabic SEO?",                 a: "Yes. We have native Arabic speakers on the team and a dedicated Arabic keyword strategy for all SEO clients." },
-      { q: "Can I do SEO and paid ads together?",   a: "Absolutely — they complement each other. Paid ads give immediate traffic while SEO builds long-term organic equity." },
-    ],
-  },
-
-  /* ── 5. BRANDING ──────────────────────────────────── */
-  {
-    slug: "branding",
-    title: "Branding",
-    category: "Brand Identity",
-    tagline: "Your Brand is the Story Before You Speak.",
-    description:
-      "A powerful brand isn't just a logo — it's the feeling your customers get at every touchpoint. We build brand identities that communicate your value instantly, create emotional connection, and make you impossible to forget.",
-    accent: ACCENT,
-    heroStats: [
-      { value: "2x",  label: "Price premium with strong brand" },
+      { value: "2x",  label: "Perceived value with strong brand" },
+      { value: "21d", label: "Full brand identity delivery" },
       { value: "7x",  label: "Customer recall improvement" },
-      { value: "21d", label: "Full identity delivery" },
       { value: "∞",   label: "Lifetime brand ownership" },
     ],
     features: [
-      { icon: "PenTool",    title: "Logo & Visual Identity", desc: "Multiple concept directions, unlimited refinements. Delivered in every format you'll ever need — print, digital, Arabic." },
-      { icon: "BookOpen",   title: "Brand Guidelines",       desc: "A comprehensive brand bible covering colours, typography, tone of voice, photography style, and usage rules." },
-      { icon: "LayoutGrid", title: "Social Media Kit",       desc: "Branded templates for Instagram, LinkedIn, Facebook, and TikTok. Post consistently without a designer every time." },
-      { icon: "Briefcase",  title: "Business Collateral",    desc: "Business cards, letterheads, email signatures, presentation templates — everything your team needs to look professional." },
-      { icon: "Lightbulb",  title: "Brand Strategy",         desc: "Positioning, target audience profiling, competitor differentiation. The thinking that makes the design meaningful." },
-      { icon: "Package",    title: "Packaging Design",       desc: "Product packaging and unboxing experiences that turn customers into brand ambassadors on social media." },
+      { icon: "PenTool",    title: "Logo & Brand Identity",    desc: "Distinctive logos and visual identities delivered in every format — digital, print, and Arabic — with unlimited refinements." },
+      { icon: "Layers",     title: "UI Design Systems",        desc: "Scalable component libraries and design tokens for your web or app product. Consistent UI that speeds up every future build." },
+      { icon: "Palette",    title: "Brand Guidelines",         desc: "A comprehensive brand bible covering colours, typography, tone of voice, photography style, and do's and don'ts." },
+      { icon: "LayoutGrid", title: "Social Media Kit",         desc: "Branded post templates for Instagram, LinkedIn, TikTok, and Facebook. Your team posts on-brand every time, effortlessly." },
+      { icon: "Briefcase",  title: "Business Collateral",      desc: "Business cards, letterheads, email signatures, pitch decks, and proposals — everything that touches a client, perfected." },
+      { icon: "Lightbulb",  title: "Brand Strategy",           desc: "AI-assisted positioning, audience profiling, and competitor differentiation. The thinking that makes the design meaningful." },
     ],
     process: [
-      { num: "01", title: "Brand Discovery",     desc: "Deep-dive workshop into your vision, values, audience, and competitive landscape. This shapes everything." },
-      { num: "02", title: "Strategy & Concepts", desc: "Brand strategy document and 2–3 distinct visual concepts, each with rationale and application examples." },
-      { num: "03", title: "Refine & Develop",    desc: "You choose a direction, we develop it fully. Iterate until it's perfect — no arbitrary revision limits." },
-      { num: "04", title: "Deliver & Guide",     desc: "Full brand kit delivered with a walkthrough session. Your team knows exactly how to use every element." },
+      { num: "01", title: "Brand Discovery",     desc: "Deep-dive into your vision, values, market position, and competitors. We identify white space and your strongest differentiators." },
+      { num: "02", title: "Strategy & Concepts", desc: "Brand strategy document plus 2–3 distinct visual concepts, each with rationale, mood board, and real-world application examples." },
+      { num: "03", title: "Refine & Perfect",    desc: "You select a direction and we develop it fully. Iterate until every element is exactly right — no revision limits." },
+      { num: "04", title: "Deliver & Activate",  desc: "Full brand and UI kit delivered with a live walkthrough. Your team knows how to apply every element across every channel." },
     ],
     results: [
       { value: "2x",  label: "Higher perceived value post-rebrand" },
@@ -229,52 +145,136 @@ export const SERVICES: ServiceData[] = [
       { value: "3wk", label: "Average full identity delivery" },
     ],
     faq: [
-      { q: "What if I already have a logo?",    a: "We can work with your existing logo, refine it, or create a full rebrand. We'll recommend the best path after seeing your current assets." },
-      { q: "Do you design in Arabic?",          a: "Yes. All branding includes Arabic versions of logos, collateral, and guidelines designed by native Arabic designers." },
-      { q: "Who owns the final designs?",       a: "You do. Full intellectual property transfer with delivery. No licensing, no restrictions, no surprises." },
-      { q: "How many revisions do I get?",      a: "Unlimited within reason. Our process is structured so revisions are focused and efficient — not endless back-and-forth." },
+      { q: "What's the difference between branding and UI design?",  a: "Branding covers your identity — logo, colours, tone. UI design applies that to digital interfaces — websites, apps, dashboards." },
+      { q: "Do you design in Arabic?",                               a: "Yes. All brand work includes Arabic versions with native Arabic designers and AI-assisted typographic refinement." },
+      { q: "Who owns the final designs?",                            a: "You do, fully. Complete IP transfer on delivery — no licensing fees, no restrictions, ever." },
+      { q: "Can you redesign an existing brand?",                    a: "Absolutely. We audit your current brand, identify what to evolve vs replace, and recommend the most strategic path forward." },
     ],
   },
 
-  /* ── 6. MAINTENANCE ───────────────────────────────── */
+  /* ── 4. AI-POWERED MARKETING FUNNEL ────────────────── */
   {
-    slug: "maintenance",
-    title: "Maintenance & Support",
-    category: "Ongoing Support",
-    tagline: "We Don't Just Build It — We Keep It Running Perfectly.",
+    slug: "ai-marketing-funnel",
+    title: "AI-Powered Marketing Funnel",
+    category: "AI-Driven Growth",
+    tagline: "Full-Funnel. Fully Autonomous. Always Optimising.",
     description:
-      "Your website is a 24/7 sales asset. Downtime, security issues, or a slow page costs you real money. Our maintenance plans keep your digital presence fast, secure, up-to-date, and always converting.",
+      "We build and manage end-to-end marketing funnels powered by AI — from the first ad impression to the closed deal. Strategy, creative, campaigns, landing pages, and follow-up sequences all running autonomously to fill your pipeline.",
     accent: ACCENT,
     heroStats: [
-      { value: "99.9%", label: "Uptime guarantee" },
-      { value: "<4hr",  label: "Emergency response time" },
-      { value: "Daily", label: "Automated backups" },
-      { value: "24/7",  label: "Monitoring coverage" },
+      { value: "3.2x",  label: "Average ROAS achieved" },
+      { value: "47%",   label: "Lower cost per lead" },
+      { value: "215%",  label: "Lead volume increase" },
+      { value: "7d",    label: "Funnel launch time" },
     ],
     features: [
-      { icon: "ShieldAlert", title: "Security Monitoring",  desc: "Real-time malware scanning, firewall management, and instant alerts. Issues caught before they become problems." },
-      { icon: "Zap",         title: "Performance Tuning",   desc: "Monthly speed audits, image optimisation, caching updates — so your site stays fast as it grows." },
-      { icon: "HardDrive",   title: "Daily Backups",        desc: "Automated daily backups with 30-day retention. One-click restore if anything ever goes wrong." },
-      { icon: "RefreshCw",   title: "Software Updates",     desc: "CMS, plugins, and dependencies kept up-to-date in a staging environment before applying to live." },
-      { icon: "Phone",       title: "Priority Support",     desc: "Dedicated WhatsApp support line. Content updates, bug fixes, and small changes handled within 24 hours." },
-      { icon: "BarChart2",   title: "Monthly Reports",      desc: "Uptime, speed, security, and traffic report every month. You always know your site's health." },
+      { icon: "Target",     title: "AI Ad Campaigns",           desc: "Google, Meta, TikTok, and Snapchat campaigns managed by AI — autonomously testing creatives, bids, and audiences 24/7." },
+      { icon: "FileText",   title: "High-Converting Landing Pages", desc: "AI-informed landing pages built for a single goal: turning ad clicks into leads. Tested and optimised continuously." },
+      { icon: "Mail",       title: "Automated Lead Nurturing",  desc: "AI-triggered email and WhatsApp sequences that move leads through your funnel automatically — no manual follow-up needed." },
+      { icon: "RefreshCw",  title: "Retargeting & Re-Engagement", desc: "Autonomous retargeting campaigns that bring back lost visitors and re-engage cold leads with the right message at the right time." },
+      { icon: "Wand2",      title: "AI Creative Production",    desc: "Ad creatives, copy, and video in Arabic and English — continuously refreshed by AI based on live performance data." },
+      { icon: "LineChart",  title: "Funnel Analytics",          desc: "Full-funnel visibility from first click to closed deal. AI-generated weekly insights that tell you exactly what to scale." },
     ],
     process: [
-      { num: "01", title: "Onboarding Audit",    desc: "Full audit of your current site — security, speed, code quality, and backups. We document everything." },
-      { num: "02", title: "Setup & Secure",      desc: "Security hardening, backup configuration, monitoring tools installed. Your site is locked down." },
-      { num: "03", title: "Ongoing Maintenance", desc: "Monthly update cycles, weekly performance checks, and immediate response to any alerts." },
-      { num: "04", title: "Proactive Reporting", desc: "Monthly report and quarterly strategy call to discuss improvements and upcoming needs." },
+      { num: "01", title: "Funnel Audit & Strategy", desc: "AI analyses your market, competitors, and audience to design the highest-converting funnel architecture for your business." },
+      { num: "02", title: "Build the Funnel",         desc: "We build landing pages, write copy, produce creatives, and set up all automation sequences before going live." },
+      { num: "03", title: "Launch & AI Optimise",     desc: "Funnel goes live and AI begins optimising every element — bids, creatives, audiences, and sequences — within hours." },
+      { num: "04", title: "Scale & Compound",         desc: "Once profitable, we scale ad spend, expand audiences, and add retargeting layers to compound results month on month." },
     ],
     results: [
-      { value: "99.9%", label: "Client uptime rate" },
-      { value: "0",     label: "Security breaches on maintained sites" },
-      { value: "4x",    label: "Faster page speed after tuning" },
+      { value: "AED 3.2", label: "Revenue per AED 1 spent" },
+      { value: "47%",     label: "Cost-per-lead reduction" },
+      { value: "215%",    label: "Lead volume in 60 days" },
     ],
     faq: [
-      { q: "What if my site goes down?",              a: "You contact us via WhatsApp and we're on it within 4 hours, guaranteed. Critical issues get immediate response 24/7." },
-      { q: "Do you maintain sites you didn't build?", a: "Yes. We onboard any site regardless of who built it. We'll fix any issues we find during the initial audit." },
-      { q: "Can I request content changes?",          a: "Yes. All plans include a monthly content update allowance. Additional changes are billed at a simple hourly rate." },
-      { q: "What's the minimum contract length?",     a: "Monthly rolling — no lock-in. We earn your business every month through reliability and responsiveness." },
+      { q: "What platforms do you run campaigns on?",        a: "Google Search, Display, YouTube, Meta (Facebook & Instagram), TikTok, and Snapchat — all managed under one strategy." },
+      { q: "What's the minimum ad budget?",                  a: "We recommend AED 5,000/month in ad spend. Our management fee is separate and scales with your budget." },
+      { q: "Do you create all the ad content?",              a: "Yes — strategy, copy, creative design, and video in Arabic and English. Fully handled by our team and AI tools." },
+      { q: "How is this different from just running ads?",   a: "We build the entire funnel — ads, landing pages, nurture sequences, and retargeting — so leads don't just click, they convert." },
+    ],
+  },
+
+  /* ── 5. SMART SUPPORT SYSTEM ────────────────────────── */
+  {
+    slug: "smart-support-system",
+    title: "Smart Support System",
+    category: "Autonomous Customer Handling",
+    tagline: "Your Support Team. Available 24/7. Powered by AI.",
+    description:
+      "We build intelligent support systems — AI chatbots, automated helpdesks, and autonomous customer handling workflows — so your business delivers instant, accurate support around the clock without growing your headcount.",
+    accent: ACCENT,
+    heroStats: [
+      { value: "24/7", label: "Autonomous customer support" },
+      { value: "<30s", label: "Average AI response time" },
+      { value: "80%",  label: "Queries resolved without human" },
+      { value: "4x",   label: "Support capacity increase" },
+    ],
+    features: [
+      { icon: "Bot",           title: "AI Chatbot",              desc: "A fully trained AI chatbot on your website and WhatsApp — answers questions, qualifies leads, and books appointments instantly." },
+      { icon: "MessageCircle", title: "WhatsApp Helpdesk",       desc: "AI-managed WhatsApp support that handles incoming queries, triages issues, and escalates to humans only when needed." },
+      { icon: "HelpCircle",    title: "Intelligent FAQ Engine",  desc: "AI trained on your products, services, and policies — giving customers accurate answers instantly, in Arabic and English." },
+      { icon: "GitBranch",     title: "Smart Ticket Routing",    desc: "Incoming support requests automatically categorised, prioritised, and routed to the right team member with full context." },
+      { icon: "RefreshCw",     title: "Escalation Workflows",    desc: "AI handles what it can, escalates what it can't — with full conversation history passed to your team seamlessly." },
+      { icon: "BarChart3",     title: "Support Analytics",       desc: "AI-generated reports on response times, resolution rates, common queries, and customer satisfaction trends." },
+    ],
+    process: [
+      { num: "01", title: "Support Audit",       desc: "We map your current support volume, common queries, escalation paths, and tools. Every gap is identified and prioritised." },
+      { num: "02", title: "AI Training",          desc: "We train your AI on your business knowledge base, FAQs, products, and tone of voice — in Arabic and English." },
+      { num: "03", title: "Build & Integrate",   desc: "Chatbot deployed on your website and WhatsApp. Helpdesk and ticketing system configured and connected to your team." },
+      { num: "04", title: "Optimise & Expand",   desc: "Monthly AI retraining based on real conversations. Continuous improvement to resolution rates and customer satisfaction." },
+    ],
+    results: [
+      { value: "80%",  label: "Queries resolved without human input" },
+      { value: "24/7", label: "Support availability" },
+      { value: "4x",   label: "Support capacity without added headcount" },
+    ],
+    faq: [
+      { q: "Can the AI handle Arabic conversations?",      a: "Yes — all AI systems are trained bilingually. The bot detects the language and responds fluently in Arabic or English." },
+      { q: "What happens when the AI can't answer?",       a: "It escalates gracefully to a human agent with the full conversation history — no customer ever hits a dead end." },
+      { q: "Which platforms does it work on?",             a: "Website chat widget, WhatsApp Business, and we can extend to Instagram DMs, Facebook Messenger, and email." },
+      { q: "How long does setup take?",                    a: "Most clients are live within 3–4 weeks. Training improves continuously over the first 60 days as the AI learns from real interactions." },
+    ],
+  },
+
+  /* ── 6. AI BUSINESS INTELLIGENCE ───────────────────── */
+  {
+    slug: "ai-business-intelligence",
+    title: "AI Business Intelligence",
+    category: "Data & Intelligence",
+    tagline: "Turn Your Business Data Into Decisions. Automatically.",
+    description:
+      "We build AI-powered intelligence systems that analyse your business performance, surface what's working and what isn't, and deliver clear, actionable reports — so you always know exactly where to focus to grow faster.",
+    accent: ACCENT,
+    heroStats: [
+      { value: "360°", label: "Business performance visibility" },
+      { value: "Real-time", label: "Data dashboards" },
+      { value: "AI",   label: "Generated insights" },
+      { value: "1",    label: "Source of truth for your team" },
+    ],
+    features: [
+      { icon: "BarChart3",       title: "AI Performance Dashboards", desc: "Custom real-time dashboards that pull data from all your platforms — sales, marketing, operations — into one clear view." },
+      { icon: "LineChart",       title: "Automated Reports",          desc: "AI-generated weekly and monthly reports delivered to your inbox. Plain-English insights — no data analyst needed." },
+      { icon: "Search",          title: "Competitor Intelligence",    desc: "AI monitors your competitors' digital presence, pricing, and strategies — so you always know where you stand in the market." },
+      { icon: "TrendingUp",      title: "Predictive Analytics",       desc: "AI models that forecast sales trends, predict churn, and identify your highest-value growth opportunities before they happen." },
+      { icon: "Target",          title: "KPI Tracking & Alerts",      desc: "Define your key metrics and let AI monitor them automatically — instant alerts when something needs your attention." },
+      { icon: "Database",        title: "Data Unification",           desc: "We connect all your data sources — CRM, website, ads, POS, and more — into a single unified intelligence layer." },
+    ],
+    process: [
+      { num: "01", title: "Data Audit",          desc: "We map every data source in your business, identify gaps, and design the intelligence architecture that gives you full visibility." },
+      { num: "02", title: "Dashboard Design",    desc: "Custom dashboards built around your specific KPIs and decision-making needs — reviewed and approved before we build." },
+      { num: "03", title: "AI Integration",      desc: "All data sources connected, AI models trained on your historical data, and automated reporting pipelines configured." },
+      { num: "04", title: "Insights & Action",   desc: "Monthly intelligence reviews where AI insights translate directly into business decisions and growth actions." },
+    ],
+    results: [
+      { value: "360°", label: "Visibility across all business functions" },
+      { value: "3x",   label: "Faster decision-making with AI insights" },
+      { value: "40%",  label: "Reduction in wasted marketing spend" },
+    ],
+    faq: [
+      { q: "What data sources can you connect?",          a: "Any platform with an API — Google Analytics, Meta Ads, CRMs, Shopify, POS systems, accounting software, and more." },
+      { q: "Do I need a data team to use this?",          a: "No. We build the entire system and deliver AI-generated reports in plain English. No technical knowledge needed." },
+      { q: "How is this different from Google Analytics?", a: "We unify all your data sources — not just website traffic — and layer AI analysis on top to surface insights GA can't show." },
+      { q: "Can the reports be customised?",               a: "Completely. Every dashboard and report is built around your specific business metrics, goals, and the decisions you need to make." },
     ],
   },
 ];

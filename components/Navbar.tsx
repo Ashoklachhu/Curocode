@@ -3,15 +3,15 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, Globe, Brain, Megaphone, TrendingUp, Diamond, Shield, Phone } from "lucide-react";
+import { Menu, X, ChevronDown, Monitor, Brain, Palette, Target, Shield, BarChart3, Phone } from "lucide-react";
 
 const serviceLinks = [
-  { label: "Web Solutions",     href: "/services/web-solutions",     icon: Globe,      color: "text-indigo-400" },
-  { label: "AI Automation",     href: "/services/ai-automation",     icon: Brain,      color: "text-purple-400" },
-  { label: "Digital Marketing", href: "/services/digital-marketing", icon: Megaphone,  color: "text-cyan-400" },
-  { label: "SEO & Growth",      href: "/services/seo-growth",        icon: TrendingUp, color: "text-emerald-400" },
-  { label: "Branding",          href: "/services/branding",          icon: Diamond,    color: "text-pink-400" },
-  { label: "Maintenance",       href: "/services/maintenance",       icon: Shield,     color: "text-amber-400" },
+  { label: "Web & App Development",          href: "/services/web-app-development",      icon: Monitor,   color: "text-indigo-400" },
+  { label: "AI Automation",                  href: "/services/ai-automation",            icon: Brain,     color: "text-indigo-400" },
+  { label: "Brand & UI Design",              href: "/services/brand-ui-design",          icon: Palette,   color: "text-indigo-400" },
+  { label: "AI-Powered Marketing Funnel",    href: "/services/ai-marketing-funnel",      icon: Target,    color: "text-indigo-400" },
+  { label: "Smart Support System",           href: "/services/smart-support-system",     icon: Shield,    color: "text-indigo-400" },
+  { label: "AI Business Intelligence",       href: "/services/ai-business-intelligence", icon: BarChart3, color: "text-indigo-400" },
 ];
 
 const navLinks = [
