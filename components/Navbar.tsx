@@ -69,7 +69,6 @@ export default function Navbar() {
               <span className="text-white font-black text-lg tracking-tight block">
                 Curo<span className="gradient-text">Code</span>
               </span>
-              <span className="text-slate-600 text-[10px] font-medium tracking-wide">UAE Digital Agency</span>
             </div>
           </Link>
 
