@@ -13,6 +13,13 @@ export const metadata: Metadata = {
   description:
     "We build. We automate. We grow your business. CuroCode delivers premium websites, AI automation, and performance-driven marketing for UAE businesses.",
   keywords: "AI automation, web solutions, digital marketing, UAE, Dubai, custom software",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png",    type: "image/png" },
+    ],
+    apple: "/apple-icon.png",
+  },
 };
 
 export default function RootLayout({
