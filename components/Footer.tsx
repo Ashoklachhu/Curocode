@@ -37,9 +37,9 @@ export default function Footer() {
               Growing your future.
             </p>
             <div className="space-y-2.5">
-              <a href="tel:+97150123456" className="flex items-center gap-2.5 text-slate-500 hover:text-white text-sm transition-colors group">
+              <a href="tel:+971508817963" className="flex items-center gap-2.5 text-slate-500 hover:text-white text-sm transition-colors group">
                 <Phone size={14} className="text-indigo-400 flex-shrink-0" />
-                +971 50 123 4567
+                +971 50 881 7963
               </a>
               <a href="mailto:hello@omnigrowth.ae" className="flex items-center gap-2.5 text-slate-500 hover:text-white text-sm transition-colors group">
                 <Mail size={14} className="text-indigo-400 flex-shrink-0" />

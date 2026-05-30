@@ -148,7 +148,7 @@ export default function Navbar() {
           {/* ── Desktop CTAs ─────────────────────── */}
           <div className="hidden lg:flex items-center gap-2.5">
             <a
-              href="https://wa.me/971000000000"
+              href="https://wa.me/971508817963"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-slate-400 hover:text-emerald-400 text-sm font-medium border border-white/[0.06] hover:border-emerald-500/30 hover:bg-emerald-500/[0.06] transition-all duration-200"
@@ -274,7 +274,7 @@ export default function Navbar() {
         {/* Drawer footer */}
         <div className="px-4 pb-6 pt-4 border-t border-white/[0.06] space-y-3">
           <a
-            href="https://wa.me/971000000000"
+            href="https://wa.me/971508817963"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setMenuOpen(false)}

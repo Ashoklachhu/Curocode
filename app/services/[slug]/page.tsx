@@ -177,8 +177,10 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           </div>
         </section>
 
-        {/* ── WORK GALLERY ─────────────────────────────── */}
-        <WorkGallery accent={svc.accent} title={svc.title} slug={svc.slug} />
+        {/* ── WORK GALLERY (web dev only for now) ─────── */}
+        {svc.slug === "web-app-development" && (
+          <WorkGallery accent={svc.accent} title={svc.title} slug={svc.slug} />
+        )}
 
         {/* ── FAQ ──────────────────────────────────────── */}
         <section className="py-20 sm:py-28">
