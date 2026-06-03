@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const inter = Inter({
@@ -29,7 +30,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} antialiased`}>{children}</body>
+      <body className={`${inter.variable} antialiased`}>
+        {children}
+        <Script
+          src="https://kuro-production-280f.up.railway.app/widget.js"
+          data-token="b648ec04-13f9-4fc2-9323-e43c6fc9dabe"
+          strategy="afterInteractive"
+        />
+      </body>
     </html>
   );
 }
