@@ -1,141 +1,81 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight, Monitor, Brain, Palette, Target, Shield, BarChart3 } from "lucide-react";
-
-const services = [
-  {
-    icon: Monitor,
-    title: "Web & App Development",
-    slug: "web-app-development",
-    label: "Development & Engineering",
-    desc: "Custom websites, portals, and web applications engineered for your business — fast, secure, and built to scale.",
-    tags: ["Custom Build", "Mobile-First", "Arabic RTL"],
-  },
-  {
-    icon: Brain,
-    title: "AI Automation",
-    slug: "ai-automation",
-    label: "Autonomous Systems",
-    desc: "Intelligent workflows that eliminate manual work — WhatsApp AI agents, workflow bots, and deep integrations running 24/7.",
-    tags: ["WhatsApp AI", "Workflow Bots", "Integrations"],
-  },
-  {
-    icon: Palette,
-    title: "Brand & UI Design",
-    slug: "brand-ui-design",
-    label: "Design & Identity",
-    desc: "Premium brand identities and UI design systems that make your business look world-class at every touchpoint.",
-    tags: ["Logo Design", "UI Systems", "Arabic"],
-  },
-  {
-    icon: Target,
-    title: "AI-Powered Marketing Funnel",
-    slug: "ai-marketing-funnel",
-    label: "AI-Driven Growth",
-    desc: "End-to-end marketing funnels — ads, landing pages, and nurture sequences — all running autonomously to fill your pipeline.",
-    tags: ["Google & Meta Ads", "AI Creative", "Auto-Optimise"],
-  },
-  {
-    icon: Shield,
-    title: "Smart Support System",
-    slug: "smart-support-system",
-    label: "Autonomous Customer Handling",
-    desc: "AI chatbots, automated helpdesks, and autonomous customer workflows delivering instant support around the clock.",
-    tags: ["AI Chatbot", "WhatsApp Help", "24/7"],
-  },
-  {
-    icon: BarChart3,
-    title: "AI Business Intelligence",
-    slug: "ai-business-intelligence",
-    label: "Data & Intelligence",
-    desc: "AI-powered dashboards and automated reports that turn your business data into clear, actionable growth decisions.",
-    tags: ["Live Dashboards", "AI Reports", "Predictive"],
-  },
-];
+import { ArrowRight, CheckCircle2, Zap } from "lucide-react";
+import { SERVICES } from "@/lib/services-data";
+import { ICONS } from "@/lib/icons";
+import SectionHeading from "@/components/SectionHeading";
 
 export default function ServicesSection() {
+  const [active, setActive] = useState(0);
+  const svc = SERVICES[active];
+  const Icon = ICONS[svc.icon] ?? Zap;
+
   return (
-    <section id="services" className="py-16 sm:py-28 relative overflow-hidden">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-indigo-600/5 rounded-full blur-[120px] pointer-events-none" />
+    <section id="services" className="py-20 sm:py-28 relative">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6">
+        <SectionHeading
+          eyebrow="What we do"
+          title={<>Software, AI and engineering talent, <span className="gradient-text">built around your goals.</span></>}
+          intro="From custom platforms and AI solutions to individual specialists and complete product teams, we bring the capability you need to move faster and deliver with confidence."
+        />
 
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 relative z-10">
-
-        {/* Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-5 mb-12 sm:mb-16">
-          <div className="space-y-4 max-w-xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-indigo-500/25 bg-indigo-500/10 text-indigo-400 text-xs font-semibold tracking-widest uppercase">
-              <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
-              What We Do
-            </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight">
-              Six AI-Powered Services.
-              <br />
-              <span className="gradient-text">One Autonomous Agency.</span>
-            </h2>
+        <div className="mt-14 grid lg:grid-cols-[320px_1fr] gap-6">
+          {/* Tabs */}
+          <div role="tablist" aria-label="Services" className="flex lg:flex-col gap-2 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden pb-2 lg:pb-0 -mx-5 px-5 lg:mx-0 lg:px-0">
+            {SERVICES.map((s, i) => {
+              const TabIcon = ICONS[s.icon] ?? Zap;
+              const selected = i === active;
+              return (
+                <button
+                  key={s.slug}
+                  role="tab"
+                  aria-selected={selected}
+                  onClick={() => setActive(i)}
+                  className={`flex-shrink-0 flex items-center gap-3 text-left px-4 py-3.5 rounded-xl border text-sm font-semibold transition-colors ${
+                    selected
+                      ? "bg-white/[0.05] border-sand-300/30 text-white"
+                      : "border-transparent text-stone-400 hover:text-white hover:bg-white/[0.03]"
+                  }`}
+                >
+                  <TabIcon size={18} className={selected ? "text-sand-300" : "text-stone-500"} />
+                  {s.title}
+                </button>
+              );
+            })}
           </div>
-          <p className="text-slate-400 text-sm sm:text-base max-w-sm leading-relaxed lg:pb-1">
-            Every service we offer is driven by AI and built to run autonomously — so your business grows even while you sleep.
-          </p>
-        </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-          {services.map((svc) => {
-            const Icon = svc.icon;
-            return (
-              <Link
-                key={svc.slug}
-                href={`/services/${svc.slug}`}
-                className="group gradient-border rounded-2xl p-7 relative overflow-hidden block transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(99,102,241,0.15)]"
-              >
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl bg-[radial-gradient(circle_at_30%_20%,rgba(99,102,241,0.07),transparent_65%)]" />
+          {/* Panel */}
+          <div role="tabpanel" className="gradient-border rounded-3xl p-7 sm:p-10 bg-[#161616]/80">
+            <div className="flex items-center gap-3">
+              <div className="w-11 h-11 rounded-xl bg-sand-300/10 border border-sand-300/20 flex items-center justify-center">
+                <Icon size={20} className="text-sand-300" />
+              </div>
+              <p className="text-stone-500 text-xs font-semibold tracking-[0.18em] uppercase">{svc.category}</p>
+            </div>
 
-                {/* Icon */}
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500/20 to-purple-600/10 border border-indigo-500/20 flex items-center justify-center mb-4 relative z-10 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(99,102,241,0.3)] transition-all duration-300">
-                  <Icon size={21} className="text-indigo-400" />
+            <h3 className="mt-6 text-2xl sm:text-3xl font-extrabold text-white tracking-tight">{svc.tagline}</h3>
+            <p className="mt-4 text-stone-400 leading-relaxed max-w-2xl">{svc.description}</p>
+
+            <div className="mt-8 grid sm:grid-cols-2 gap-x-8 gap-y-3">
+              {svc.features.map((f) => (
+                <div key={f.title} className="flex items-start gap-3">
+                  <CheckCircle2 size={16} className="text-sand-400 mt-0.5 flex-shrink-0" />
+                  <span className="text-stone-300 text-sm">{f.title}</span>
                 </div>
+              ))}
+            </div>
 
-                {/* Label */}
-                <p className="text-indigo-400/70 text-[10px] font-semibold tracking-widest uppercase mb-1.5 relative z-10">{svc.label}</p>
-
-                {/* Title */}
-                <h3 className="text-white font-bold text-xl mb-2.5 relative z-10">{svc.title}</h3>
-
-                {/* Desc */}
-                <p className="text-slate-500 text-sm leading-relaxed relative z-10 mb-5">{svc.desc}</p>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-1.5 relative z-10 mb-6">
-                  {svc.tags.map((tag) => (
-                    <span key={tag} className="px-2.5 py-1 rounded-lg bg-white/[0.03] border border-white/[0.07] text-slate-600 text-xs font-medium">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {/* CTA */}
-                <div className="flex items-center gap-2 text-indigo-400 text-sm font-semibold relative z-10 group-hover:gap-3 transition-all duration-300">
-                  Learn more <ArrowRight size={14} />
-                </div>
-
-                <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-indigo-500/0 via-indigo-500/50 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </Link>
-            );
-          })}
+            <Link
+              href={`/services/${svc.slug}`}
+              className="mt-10 inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-white/[0.12] text-white hover:bg-white/[0.04] text-sm font-semibold transition-colors group"
+            >
+              Learn more about {svc.short}
+              <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
+            </Link>
+          </div>
         </div>
-
-        {/* Bottom CTA */}
-        <div className="mt-12 sm:mt-14 text-center">
-          <p className="text-slate-600 text-sm mb-4">Want all six working together for your business?</p>
-          <Link
-            href="/#contact"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-indigo-500/25 bg-indigo-500/8 text-indigo-300 text-sm font-semibold hover:bg-indigo-500/15 hover:border-indigo-500/40 transition-all duration-200"
-          >
-            Book a free AI strategy session <ArrowRight size={13} />
-          </Link>
-        </div>
-
       </div>
     </section>
   );

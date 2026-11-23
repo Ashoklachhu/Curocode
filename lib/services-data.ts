@@ -1,286 +1,274 @@
 export interface ServiceFeature { icon: string; title: string; desc: string }
 export interface ServiceStep    { num: string; title: string; desc: string }
-export interface ServiceResult  { value: string; label: string }
 export interface ServiceFAQ     { q: string; a: string }
 
 export interface ServiceData {
   slug: string;
   title: string;
+  /** Short name used in navigation and form dropdowns. */
+  short: string;
+  icon: string;
   category: string;
   tagline: string;
+  summary: string;
   description: string;
-  accent: { from: string; to: string; text: string; badge: string; glow: string }
-  heroStats: { value: string; label: string }[];
+  highlights: string[];
+  accent: { from: string; to: string; text: string; badge: string; glow: string };
   features: ServiceFeature[];
   process: ServiceStep[];
-  results: ServiceResult[];
   faq: ServiceFAQ[];
 }
 
 const ACCENT = {
-  from: "from-indigo-600", to: "to-purple-600",
-  text: "text-indigo-400",
-  badge: "bg-indigo-500/15 text-indigo-300 border-indigo-500/30",
-  glow: "rgba(99,102,241,0.35)",
+  from: "from-sand-300", to: "to-sand-400",
+  text: "text-sand-400",
+  badge: "bg-sand-500/15 text-sand-300 border-sand-500/30",
+  glow: "rgba(217,195,160,0.18)",
 };
 
-export const SERVICES: ServiceData[] = [
+const ALL_SERVICES: ServiceData[] = [
 
-  /* ── 1. WEB & APP DEVELOPMENT ──────────────────────── */
+  /* ── 1. STAFF AUGMENTATION ─────────────────────────── */
   {
-    slug: "web-app-development",
-    title: "Web & App Development",
-    category: "Development & Engineering",
-    tagline: "Custom-Built for Your Business. Engineered to Scale.",
+    slug: "staff-augmentation",
+    title: "IT Staff Augmentation",
+    short: "Staff Augmentation",
+    icon: "UserPlus",
+    category: "Talent on Demand",
+    tagline: "Skilled Engineers. Embedded in Your Team.",
+    summary:
+      "Extend your in-house team with vetted engineers who work your hours, use your tools and report to your leads.",
     description:
-      "We design and engineer custom websites, client portals, and web applications tailored precisely to your business needs — not off-the-shelf templates. Every build is fast, secure, and built to grow with you.",
+      "Close skill gaps and hit delivery deadlines without the cost and delay of permanent hiring. We provide pre-vetted developers, architects and specialists who integrate directly into your team, your processes and your sprint cadence.",
+    highlights: ["Pre-vetted engineers", "Flexible monthly contracts", "Scale up or down"],
     accent: ACCENT,
-    heroStats: [
-      { value: "30d",  label: "Average project delivery" },
-      { value: "<1s",  label: "Load time target" },
-      { value: "100",  label: "Google PageSpeed score" },
-      { value: "3x",   label: "Average conversion lift" },
-    ],
     features: [
-      { icon: "Monitor",         title: "Custom Websites",         desc: "Bespoke business websites designed around your brand, goals, and audience — built to convert visitors into customers." },
-      { icon: "LayoutDashboard", title: "Portals & Dashboards",    desc: "Client portals, internal dashboards, and admin panels built with real-time data, role-based access, and clean UX." },
-      { icon: "AppWindow",       title: "Web Applications",        desc: "Complex web apps with custom logic, database architecture, API integrations, and scalable cloud infrastructure." },
-      { icon: "Smartphone",      title: "Mobile-First Engineering", desc: "Every build starts on mobile. Responsive, touch-optimised, and tested across all devices and screen sizes." },
-      { icon: "Plug",            title: "Third-Party Integrations", desc: "CRMs, payment gateways, ERPs, and APIs — we connect your web build to the tools your business already uses." },
-      { icon: "ShieldCheck",     title: "Security & Performance",  desc: "SSL, OWASP-compliant code, automated backups, and performance monitoring built in from day one." },
+      { icon: "ShieldCheck",   title: "Rigorous Vetting",          desc: "Every engineer passes technical assessments, live coding interviews and communication screening before they reach your shortlist." },
+      { icon: "Users",         title: "You Interview, You Decide", desc: "Review profiles and interview candidates yourself. You only onboard the people you are confident in." },
+      { icon: "Clock",         title: "Working-Hour Overlap",      desc: "Engineers align with your working hours, so stand-ups, reviews and pairing happen in real time." },
+      { icon: "RefreshCw",     title: "Flexible Scaling",          desc: "Add capacity for a launch or wind down after a milestone. Monthly terms with no long lock-in." },
+      { icon: "FileText",      title: "IP & Confidentiality",      desc: "NDAs and full IP assignment as standard. Everything your augmented staff build belongs to you." },
+      { icon: "LifeBuoy",      title: "Ongoing Account Support",   desc: "A dedicated account manager tracks performance, handles admin and arranges replacements if ever needed." },
     ],
     process: [
-      { num: "01", title: "Discovery & Scoping",  desc: "We define your requirements, user flows, and technical architecture. You get a clear brief, timeline, and fixed price." },
-      { num: "02", title: "Design & Prototype",   desc: "High-fidelity mockups for every screen. You approve the exact look and feel before development begins." },
-      { num: "03", title: "Build & Test",         desc: "Developed in sprints with daily updates. Rigorous QA testing across browsers, devices, and performance benchmarks." },
-      { num: "04", title: "Launch & Handover",    desc: "We deploy, monitor live performance, and hand over full documentation. Your team is trained and ready to manage it." },
-    ],
-    results: [
-      { value: "215%", label: "Average lead increase post-launch" },
-      { value: "47%",  label: "Drop in bounce rate" },
-      { value: "30d",  label: "Average delivery from kickoff" },
+      { num: "01", title: "Share Your Requirements", desc: "Tell us the roles, skills, seniority and working hours you need. We confirm scope and budget on a short call." },
+      { num: "02", title: "Receive a Shortlist",     desc: "We present a curated set of pre-vetted profiles matched to your stack and team culture." },
+      { num: "03", title: "Interview & Select",      desc: "You interview the candidates and choose who joins. We handle contracts, equipment and compliance." },
+      { num: "04", title: "Onboard & Scale",         desc: "Your new engineers join your tools and rituals. Add or adjust capacity whenever your roadmap changes." },
     ],
     faq: [
-      { q: "Do you build custom or use templates?",    a: "Always custom. We never use templates — every website and app is engineered specifically for your business and goals." },
-      { q: "Can you build in Arabic?",                 a: "Yes — full RTL layout, Arabic typography, and bilingual content management is standard on all UAE projects." },
-      { q: "Who owns the code after delivery?",        a: "You do. Full source code handover, no licensing, no lock-in. It's yours completely." },
-      { q: "Do you offer post-launch support?",        a: "Yes — 30 days of free fixes post-launch. For ongoing support, our Smart Support System plan covers everything." },
+      { q: "How is staff augmentation different from outsourcing a project?", a: "With staff augmentation you keep full control of the work. The engineers join your team and follow your direction, while we take care of hiring, HR, payroll and retention." },
+      { q: "Which roles can you provide?",                 a: "Frontend, backend and full-stack developers, mobile engineers, DevOps and cloud engineers, data and AI engineers, QA engineers, UI/UX designers, business analysts and project managers." },
+      { q: "What if an engineer is not the right fit?",    a: "Tell your account manager and we will arrange a replacement from our network with a smooth handover, at no additional recruitment cost." },
+      { q: "Is there a minimum contract length?",          a: "Engagements are billed monthly. We agree a notice period up front so you keep the flexibility to scale as your needs change." },
     ],
   },
 
-  /* ── 2. AI AUTOMATION ──────────────────────────────── */
+  /* ── 2. DEDICATED TEAMS ────────────────────────────── */
   {
-    slug: "ai-automation",
-    title: "AI Automation",
-    category: "Autonomous Systems",
-    tagline: "Smart Workflows That Run Your Business on Autopilot.",
+    slug: "dedicated-teams",
+    title: "Dedicated Development Teams",
+    short: "Dedicated Teams",
+    icon: "Users",
+    category: "Managed Teams",
+    tagline: "A Complete Team. Fully Focused on Your Product.",
+    summary:
+      "A cross-functional team of engineers, QA and delivery leads working exclusively on your product.",
     description:
-      "We build intelligent automation systems that eliminate manual work, cut costs, and let your team focus on what actually matters. From AI-powered lead handling to fully autonomous business workflows — we make your operations run themselves.",
+      "Get a self-sufficient, cross-functional team that works only on your product. We assemble the right mix of engineers, designers, QA and a delivery lead, and manage the team day to day while you set the priorities.",
+    highlights: ["Cross-functional squads", "Delivery manager included", "Long-term continuity"],
     accent: ACCENT,
-    heroStats: [
-      { value: "80%",  label: "Reduction in manual tasks" },
-      { value: "24/7", label: "Systems run around the clock" },
-      { value: "60d",  label: "Average time to go live" },
-      { value: "4x",   label: "Team productivity boost" },
-    ],
     features: [
-      { icon: "MessageCircle", title: "WhatsApp AI Agent",       desc: "Automatically qualify leads, answer FAQs, book appointments, and follow up via WhatsApp in Arabic and English — 24/7." },
-      { icon: "GitBranch",     title: "Business Workflow Bots",  desc: "Map any business process — lead handling, invoicing, onboarding — and we automate it end-to-end with zero manual input." },
-      { icon: "Bot",           title: "Custom AI Assistants",    desc: "Train a GPT-powered assistant on your business knowledge. Instant, accurate answers for staff and customers at scale." },
-      { icon: "Mail",          title: "Autonomous Follow-Up",    desc: "Behaviour-triggered email and WhatsApp sequences that nurture leads automatically — from first touch to closed deal." },
-      { icon: "BarChart3",     title: "Automated Reporting",     desc: "Real-time dashboards and scheduled AI reports that surface the numbers you need without manual data pulling." },
-      { icon: "Layers",        title: "Deep System Integrations",desc: "Seamlessly connect Zoho, HubSpot, Salesforce, Slack, Google Workspace, QuickBooks, and 200+ tools via smart API bridges." },
+      { icon: "LayoutGrid",    title: "Right-Sized Team",          desc: "We shape the team around your roadmap: engineers, QA, designers, DevOps and a delivery lead in the right proportions." },
+      { icon: "Briefcase",     title: "Managed Delivery",          desc: "A dedicated delivery manager runs sprints, reporting and quality control so your leadership can focus on strategy." },
+      { icon: "BarChart3",     title: "Transparent Reporting",     desc: "Sprint reviews, velocity tracking and regular status reports give you full visibility of progress and spend." },
+      { icon: "GitBranch",     title: "Engineering Best Practice", desc: "Code reviews, CI/CD, automated testing and documentation are built into how the team works from day one." },
+      { icon: "Lock",          title: "Security & Compliance",     desc: "Secure access policies, NDAs and IP assignment protect your product, data and customers." },
+      { icon: "TrendingUp",    title: "Grows With You",            desc: "Expand the team as your product grows, or spin up a second squad for a new initiative." },
     ],
     process: [
-      { num: "01", title: "Process Mapping",     desc: "We audit your current workflows, identify the highest-value automation opportunities, and rank them by ROI and effort." },
-      { num: "02", title: "Automation Blueprint", desc: "Full logic map of every trigger, action, and integration. You review and approve everything before we build." },
-      { num: "03", title: "Build & Integrate",   desc: "Built and stress-tested in staging. We connect every system and run end-to-end tests before touching your live environment." },
-      { num: "04", title: "Monitor & Improve",   desc: "24/7 monitoring with error handling. Monthly optimisation reviews to keep every automation running at peak performance." },
-    ],
-    results: [
-      { value: "80%",  label: "Reduction in manual data entry" },
-      { value: "6hrs", label: "Saved per team member every day" },
-      { value: "2min", label: "Lead response time (was 6 hours)" },
+      { num: "01", title: "Discovery Workshop",   desc: "We learn your product, goals, architecture and ways of working, then propose a team composition and budget." },
+      { num: "02", title: "Team Assembly",        desc: "We select engineers for your stack and domain. You meet the key members before the engagement starts." },
+      { num: "03", title: "Onboarding",           desc: "The team ramps up on your codebase, tools and processes, with a clear 30-day onboarding plan." },
+      { num: "04", title: "Continuous Delivery",  desc: "The team ships in regular sprints with demos, metrics and retrospectives, continuously improving over time." },
     ],
     faq: [
-      { q: "Do I need technical knowledge to get started?", a: "None at all. You describe how your business works — we handle every technical aspect of building the automation." },
-      { q: "Which tools can you connect to?",               a: "200+ tools including WhatsApp Business API, Zoho, HubSpot, Salesforce, Slack, Google Workspace, and custom APIs." },
-      { q: "How quickly will I see ROI?",                   a: "Most clients recover the investment within 60–90 days through time saved and opportunities no longer missed." },
-      { q: "Is my business data safe?",                     a: "Yes. All integrations use encrypted API connections. We never store sensitive data on third-party servers." },
+      { q: "Who manages the dedicated team?",              a: "A CuroCode delivery manager handles day-to-day management, while your product owner sets priorities. You get the output of a full team without the management overhead." },
+      { q: "Will the team work only on my product?",       a: "Yes. A dedicated team is assigned exclusively to your product for the duration of the engagement." },
+      { q: "How do you keep the team stable?",             a: "We invest in retention through career development, fair compensation and good working conditions. When changes happen, we plan handovers so knowledge stays with your product." },
+      { q: "Can we eventually hire the team in-house?",    a: "Yes. We can agree transfer terms up front if you plan to bring team members in-house in the future." },
     ],
   },
 
-  /* ── 3. BRAND & UI DESIGN ──────────────────────────── */
+  /* ── 3. SOFTWARE DEVELOPMENT ───────────────────────── */
   {
-    slug: "brand-ui-design",
-    title: "Brand & UI Design",
-    category: "Design & Identity",
-    tagline: "Design That Communicates Before Words Do.",
+    slug: "software-development",
+    title: "Custom Software Development",
+    short: "Software Development",
+    icon: "Code2",
+    category: "Product Engineering",
+    tagline: "From Idea to Production. Engineered to Scale.",
+    summary:
+      "End-to-end design and engineering of web platforms, mobile apps and enterprise software.",
     description:
-      "We build premium brand identities and UI design systems that make your business look world-class at every touchpoint. From your logo to your product interface — every element is intentional, cohesive, and built to convert.",
+      "We take ownership of the full product lifecycle, from discovery and architecture to design, development, launch and ongoing support. Ideal for companies that want a reliable partner to deliver a defined outcome.",
+    highlights: ["Web & mobile apps", "Enterprise platforms", "Fixed-scope or agile delivery"],
     accent: ACCENT,
-    heroStats: [
-      { value: "2x",  label: "Perceived value with strong brand" },
-      { value: "21d", label: "Full brand identity delivery" },
-      { value: "7x",  label: "Customer recall improvement" },
-      { value: "∞",   label: "Lifetime brand ownership" },
-    ],
     features: [
-      { icon: "PenTool",    title: "Logo & Brand Identity",    desc: "Distinctive logos and visual identities delivered in every format — digital, print, and Arabic — with unlimited refinements." },
-      { icon: "Layers",     title: "UI Design Systems",        desc: "Scalable component libraries and design tokens for your web or app product. Consistent UI that speeds up every future build." },
-      { icon: "Palette",    title: "Brand Guidelines",         desc: "A comprehensive brand bible covering colours, typography, tone of voice, photography style, and do's and don'ts." },
-      { icon: "LayoutGrid", title: "Social Media Kit",         desc: "Branded post templates for Instagram, LinkedIn, TikTok, and Facebook. Your team posts on-brand every time, effortlessly." },
-      { icon: "Briefcase",  title: "Business Collateral",      desc: "Business cards, letterheads, email signatures, pitch decks, and proposals — everything that touches a client, perfected." },
-      { icon: "Lightbulb",  title: "Brand Strategy",           desc: "AI-assisted positioning, audience profiling, and competitor differentiation. The thinking that makes the design meaningful." },
+      { icon: "AppWindow",       title: "Web Platforms",            desc: "Customer portals, SaaS products and internal tools built with modern, maintainable frameworks." },
+      { icon: "Smartphone",      title: "Mobile Applications",      desc: "Native and cross-platform iOS and Android apps with polished UX and reliable performance." },
+      { icon: "Database",        title: "Enterprise Systems",       desc: "ERP, CRM and workflow systems tailored to your operations, with integrations to the tools you already use." },
+      { icon: "Plug",            title: "APIs & Integrations",      desc: "Robust APIs, payment gateways and third-party integrations that connect your systems securely." },
+      { icon: "PenTool",         title: "UI/UX Design",             desc: "Research-led product design that makes complex workflows simple and intuitive for your users." },
+      { icon: "RefreshCw",       title: "Modernisation",            desc: "Re-architect legacy applications into scalable, cloud-ready systems without disrupting your business." },
     ],
     process: [
-      { num: "01", title: "Brand Discovery",     desc: "Deep-dive into your vision, values, market position, and competitors. We identify white space and your strongest differentiators." },
-      { num: "02", title: "Strategy & Concepts", desc: "Brand strategy document plus 2–3 distinct visual concepts, each with rationale, mood board, and real-world application examples." },
-      { num: "03", title: "Refine & Perfect",    desc: "You select a direction and we develop it fully. Iterate until every element is exactly right — no revision limits." },
-      { num: "04", title: "Deliver & Activate",  desc: "Full brand and UI kit delivered with a live walkthrough. Your team knows how to apply every element across every channel." },
-    ],
-    results: [
-      { value: "2x",  label: "Higher perceived value post-rebrand" },
-      { value: "40%", label: "Increase in referrals from brand recognition" },
-      { value: "3wk", label: "Average full identity delivery" },
+      { num: "01", title: "Discovery & Scoping",   desc: "We define requirements, user journeys and technical architecture, and agree a clear plan, timeline and budget." },
+      { num: "02", title: "Design & Prototype",    desc: "Wireframes and interactive prototypes validate the experience before development begins." },
+      { num: "03", title: "Build & Test",          desc: "Agile sprints with regular demos, automated testing and code reviews keep quality high and progress visible." },
+      { num: "04", title: "Launch & Support",      desc: "We deploy to production, monitor performance and provide ongoing maintenance and enhancements." },
     ],
     faq: [
-      { q: "What's the difference between branding and UI design?",  a: "Branding covers your identity — logo, colours, tone. UI design applies that to digital interfaces — websites, apps, dashboards." },
-      { q: "Do you design in Arabic?",                               a: "Yes. All brand work includes Arabic versions with native Arabic designers and AI-assisted typographic refinement." },
-      { q: "Who owns the final designs?",                            a: "You do, fully. Complete IP transfer on delivery — no licensing fees, no restrictions, ever." },
-      { q: "Can you redesign an existing brand?",                    a: "Absolutely. We audit your current brand, identify what to evolve vs replace, and recommend the most strategic path forward." },
+      { q: "Do you work on fixed price or time and materials?", a: "Both. Well-defined projects can be delivered on a fixed scope and price; evolving products are usually better suited to an agile, time-and-materials model." },
+      { q: "Who owns the source code?",                    a: "You do. Full source code and IP are transferred to you, with documentation and no licensing lock-in." },
+      { q: "Can you take over an existing codebase?",      a: "Yes. We start with a technical audit, then stabilise, document and continue developing the product." },
+      { q: "Do you support Arabic and multilingual products?", a: "Yes. We build RTL layouts and multilingual content management for products serving the Middle East and global markets." },
     ],
   },
 
-  /* ── 4. AI-POWERED MARKETING FUNNEL ────────────────── */
+  /* ── 4. AI SOLUTIONS ──────────────────────────────────── */
   {
-    slug: "ai-marketing-funnel",
-    title: "AI-Powered Marketing Funnel",
-    category: "AI-Driven Growth",
-    tagline: "Full-Funnel. Fully Autonomous. Always Optimising.",
+    slug: "ai-solutions",
+    title: "AI Solutions & Automation",
+    short: "AI Solutions",
+    icon: "Brain",
+    category: "Artificial Intelligence",
+    tagline: "Practical AI. Real Business Results.",
+    summary:
+      "AI agents, chatbots, automation and data solutions that save time, reduce costs and open up new opportunities.",
     description:
-      "We build and manage end-to-end marketing funnels powered by AI — from the first ad impression to the closed deal. Strategy, creative, campaigns, landing pages, and follow-up sequences all running autonomously to fill your pipeline.",
+      "We design and build AI solutions that solve real business problems: AI agents and chatbots that serve your customers around the clock, automation that removes repetitive work, generative AI applications and the data foundations that power them. We take ideas from proof of concept to production.",
+    highlights: ["AI agents & chatbots", "Workflow & process automation", "Generative AI & data solutions"],
     accent: ACCENT,
-    heroStats: [
-      { value: "3.2x",  label: "Average ROAS achieved" },
-      { value: "47%",   label: "Lower cost per lead" },
-      { value: "215%",  label: "Lead volume increase" },
-      { value: "7d",    label: "Funnel launch time" },
-    ],
     features: [
-      { icon: "Target",     title: "AI Ad Campaigns",           desc: "Google, Meta, TikTok, and Snapchat campaigns managed by AI — autonomously testing creatives, bids, and audiences 24/7." },
-      { icon: "FileText",   title: "High-Converting Landing Pages", desc: "AI-informed landing pages built for a single goal: turning ad clicks into leads. Tested and optimised continuously." },
-      { icon: "Mail",       title: "Automated Lead Nurturing",  desc: "AI-triggered email and WhatsApp sequences that move leads through your funnel automatically — no manual follow-up needed." },
-      { icon: "RefreshCw",  title: "Retargeting & Re-Engagement", desc: "Autonomous retargeting campaigns that bring back lost visitors and re-engage cold leads with the right message at the right time." },
-      { icon: "Wand2",      title: "AI Creative Production",    desc: "Ad creatives, copy, and video in Arabic and English — continuously refreshed by AI based on live performance data." },
-      { icon: "LineChart",  title: "Funnel Analytics",          desc: "Full-funnel visibility from first click to closed deal. AI-generated weekly insights that tell you exactly what to scale." },
+      { icon: "Bot",             title: "AI Agents & Chatbots",      desc: "Customer service, sales and internal assistants for your website, WhatsApp and team tools, in English, Arabic and other languages." },
+      { icon: "Brain",           title: "Generative AI Applications", desc: "Knowledge assistants, smart search, content generation and copilots built on leading AI models and grounded in your own data." },
+      { icon: "Workflow",        title: "Workflow Automation",        desc: "Automate repetitive, multi-step processes across your CRM, ERP, email and messaging tools to save time and reduce errors." },
+      { icon: "FileText",        title: "Document Processing",        desc: "Extract, classify and summarise invoices, contracts, forms and reports automatically and accurately." },
+      { icon: "LineChart",       title: "Data Engineering & Analytics", desc: "Pipelines, data warehouses and dashboards that give you reliable data and a clear, real-time view of the business." },
+      { icon: "Cpu",             title: "Machine Learning",           desc: "Forecasting, recommendation and classification models designed, deployed and monitored in production." },
     ],
     process: [
-      { num: "01", title: "Funnel Audit & Strategy", desc: "AI analyses your market, competitors, and audience to design the highest-converting funnel architecture for your business." },
-      { num: "02", title: "Build the Funnel",         desc: "We build landing pages, write copy, produce creatives, and set up all automation sequences before going live." },
-      { num: "03", title: "Launch & AI Optimise",     desc: "Funnel goes live and AI begins optimising every element — bids, creatives, audiences, and sequences — within hours." },
-      { num: "04", title: "Scale & Compound",         desc: "Once profitable, we scale ad spend, expand audiences, and add retargeting layers to compound results month on month." },
-    ],
-    results: [
-      { value: "AED 3.2", label: "Revenue per AED 1 spent" },
-      { value: "47%",     label: "Cost-per-lead reduction" },
-      { value: "215%",    label: "Lead volume in 60 days" },
+      { num: "01", title: "Assess",         desc: "We review your data, systems and goals to identify high-value, achievable AI and analytics opportunities." },
+      { num: "02", title: "Prove",          desc: "A focused proof of concept validates the approach and the business case quickly." },
+      { num: "03", title: "Productionise",  desc: "We build the solution for scale, security and reliability, and integrate it with your systems." },
+      { num: "04", title: "Optimise",       desc: "We monitor performance, refine models and expand successful use cases across the organisation." },
     ],
     faq: [
-      { q: "What platforms do you run campaigns on?",        a: "Google Search, Display, YouTube, Meta (Facebook & Instagram), TikTok, and Snapchat — all managed under one strategy." },
-      { q: "What's the minimum ad budget?",                  a: "We recommend AED 5,000/month in ad spend. Our management fee is separate and scales with your budget." },
-      { q: "Do you create all the ad content?",              a: "Yes — strategy, copy, creative design, and video in Arabic and English. Fully handled by our team and AI tools." },
-      { q: "How is this different from just running ads?",   a: "We build the entire funnel — ads, landing pages, nurture sequences, and retargeting — so leads don't just click, they convert." },
+      { q: "We are new to AI. Where should we start?",    a: "Start with a short assessment. We identify two or three practical use cases with clear ROI and recommend the simplest path to prove them." },
+      { q: "Is our data safe?",                           a: "Yes. We design solutions with access controls, encryption and data residency in mind, and never use your data to train public models." },
+      { q: "Can your chatbots work on WhatsApp and in Arabic?", a: "Yes. We build AI assistants for websites, WhatsApp and internal tools, with support for Arabic, English and other languages." },
+      { q: "Which platforms do you work with?",           a: "AWS, Azure and Google Cloud, along with leading AI model providers, Snowflake, Databricks, Power BI and other common data tools." },
+      { q: "Can you add AI to our existing product?",     a: "Yes. We regularly integrate AI features such as assistants, smart search and summarisation into existing applications." },
     ],
   },
 
-  /* ── 5. SMART SUPPORT SYSTEM ────────────────────────── */
+  /* ── 5. CLOUD & DEVOPS ─────────────────────────────── */
   {
-    slug: "smart-support-system",
-    title: "Smart Support System",
-    category: "Autonomous Customer Handling",
-    tagline: "Your Support Team. Available 24/7. Powered by AI.",
+    slug: "cloud-devops",
+    title: "Cloud & DevOps",
+    short: "Cloud & DevOps",
+    icon: "Cloud",
+    category: "Infrastructure & Operations",
+    tagline: "Reliable Infrastructure. Faster Releases.",
+    summary:
+      "Cloud migration, infrastructure automation and DevOps practices that make software delivery fast and dependable.",
     description:
-      "We build intelligent support systems — AI chatbots, automated helpdesks, and autonomous customer handling workflows — so your business delivers instant, accurate support around the clock without growing your headcount.",
+      "We design, migrate and run cloud infrastructure that is secure, cost-efficient and easy to scale. Our DevOps engineers automate your build, test and release pipelines so your teams can ship with confidence.",
+    highlights: ["AWS, Azure & GCP", "CI/CD automation", "24/7 monitoring options"],
     accent: ACCENT,
-    heroStats: [
-      { value: "24/7", label: "Autonomous customer support" },
-      { value: "<30s", label: "Average AI response time" },
-      { value: "80%",  label: "Queries resolved without human" },
-      { value: "4x",   label: "Support capacity increase" },
-    ],
     features: [
-      { icon: "Bot",           title: "AI Chatbot",              desc: "A fully trained AI chatbot on your website and WhatsApp — answers questions, qualifies leads, and books appointments instantly." },
-      { icon: "MessageCircle", title: "WhatsApp Helpdesk",       desc: "AI-managed WhatsApp support that handles incoming queries, triages issues, and escalates to humans only when needed." },
-      { icon: "HelpCircle",    title: "Intelligent FAQ Engine",  desc: "AI trained on your products, services, and policies — giving customers accurate answers instantly, in Arabic and English." },
-      { icon: "GitBranch",     title: "Smart Ticket Routing",    desc: "Incoming support requests automatically categorised, prioritised, and routed to the right team member with full context." },
-      { icon: "RefreshCw",     title: "Escalation Workflows",    desc: "AI handles what it can, escalates what it can't — with full conversation history passed to your team seamlessly." },
-      { icon: "BarChart3",     title: "Support Analytics",       desc: "AI-generated reports on response times, resolution rates, common queries, and customer satisfaction trends." },
+      { icon: "Cloud",           title: "Cloud Migration",          desc: "Plan and execute migrations to AWS, Azure or Google Cloud with minimal downtime and risk." },
+      { icon: "Server",          title: "Infrastructure as Code",   desc: "Reproducible, version-controlled infrastructure using Terraform, CloudFormation and Kubernetes." },
+      { icon: "GitBranch",       title: "CI/CD Pipelines",          desc: "Automated build, test and deployment pipelines that shorten release cycles and reduce errors." },
+      { icon: "Gauge",           title: "Monitoring & Reliability", desc: "Observability, alerting and incident response that keep your systems healthy and available." },
+      { icon: "ShieldAlert",     title: "Cloud Security",           desc: "Hardened configurations, identity management and compliance-ready controls across your environments." },
+      { icon: "TrendingUp",      title: "Cost Optimisation",        desc: "Right-size resources and remove waste to reduce your monthly cloud spend." },
     ],
     process: [
-      { num: "01", title: "Support Audit",       desc: "We map your current support volume, common queries, escalation paths, and tools. Every gap is identified and prioritised." },
-      { num: "02", title: "AI Training",          desc: "We train your AI on your business knowledge base, FAQs, products, and tone of voice — in Arabic and English." },
-      { num: "03", title: "Build & Integrate",   desc: "Chatbot deployed on your website and WhatsApp. Helpdesk and ticketing system configured and connected to your team." },
-      { num: "04", title: "Optimise & Expand",   desc: "Monthly AI retraining based on real conversations. Continuous improvement to resolution rates and customer satisfaction." },
-    ],
-    results: [
-      { value: "80%",  label: "Queries resolved without human input" },
-      { value: "24/7", label: "Support availability" },
-      { value: "4x",   label: "Support capacity without added headcount" },
+      { num: "01", title: "Audit",      desc: "We assess your current infrastructure, delivery pipeline, security posture and cloud costs." },
+      { num: "02", title: "Design",     desc: "We define a target architecture and roadmap aligned with your performance, security and budget goals." },
+      { num: "03", title: "Implement",  desc: "We migrate workloads, automate infrastructure and pipelines, and document everything." },
+      { num: "04", title: "Operate",    desc: "Ongoing monitoring, maintenance and optimisation, either managed by us or handed over to your team." },
     ],
     faq: [
-      { q: "Can the AI handle Arabic conversations?",      a: "Yes — all AI systems are trained bilingually. The bot detects the language and responds fluently in Arabic or English." },
-      { q: "What happens when the AI can't answer?",       a: "It escalates gracefully to a human agent with the full conversation history — no customer ever hits a dead end." },
-      { q: "Which platforms does it work on?",             a: "Website chat widget, WhatsApp Business, and we can extend to Instagram DMs, Facebook Messenger, and email." },
-      { q: "How long does setup take?",                    a: "Most clients are live within 3–4 weeks. Training improves continuously over the first 60 days as the AI learns from real interactions." },
+      { q: "Can you manage our infrastructure on an ongoing basis?", a: "Yes. We offer managed cloud and DevOps support, including monitoring, patching, backups and incident response." },
+      { q: "Do you work with on-premise or hybrid setups?",          a: "Yes. We support hybrid environments and can plan a phased migration that suits your business." },
+      { q: "How do you reduce cloud costs?",                        a: "Through right-sizing, reserved capacity, autoscaling, storage tiering and removing unused resources, backed by regular cost reports." },
+      { q: "Which tools do you use?",                               a: "Terraform, Kubernetes, Docker, GitHub Actions, GitLab CI, Jenkins, Prometheus, Grafana and the native tooling of each cloud provider." },
     ],
   },
 
-  /* ── 6. AI BUSINESS INTELLIGENCE ───────────────────── */
+  /* ── 6. QA & TESTING ───────────────────────────────── */
   {
-    slug: "ai-business-intelligence",
-    title: "AI Business Intelligence",
-    category: "Data & Intelligence",
-    tagline: "Turn Your Business Data Into Decisions. Automatically.",
+    slug: "qa-testing",
+    title: "QA & Software Testing",
+    short: "QA & Testing",
+    icon: "Bug",
+    category: "Quality Engineering",
+    tagline: "Release With Confidence. Every Time.",
+    summary:
+      "Manual and automated testing that catches issues early and protects the experience of your users.",
     description:
-      "We build AI-powered intelligence systems that analyse your business performance, surface what's working and what isn't, and deliver clear, actionable reports — so you always know exactly where to focus to grow faster.",
+      "Our quality engineers help you ship stable, secure and high-performing software. We build test strategies, automate regression testing and integrate quality checks into your delivery pipeline.",
+    highlights: ["Test automation", "Performance & security testing", "Embedded QA engineers"],
     accent: ACCENT,
-    heroStats: [
-      { value: "360°", label: "Business performance visibility" },
-      { value: "Real-time", label: "Data dashboards" },
-      { value: "AI",   label: "Generated insights" },
-      { value: "1",    label: "Source of truth for your team" },
-    ],
     features: [
-      { icon: "BarChart3",       title: "AI Performance Dashboards", desc: "Custom real-time dashboards that pull data from all your platforms — sales, marketing, operations — into one clear view." },
-      { icon: "LineChart",       title: "Automated Reports",          desc: "AI-generated weekly and monthly reports delivered to your inbox. Plain-English insights — no data analyst needed." },
-      { icon: "Search",          title: "Competitor Intelligence",    desc: "AI monitors your competitors' digital presence, pricing, and strategies — so you always know where you stand in the market." },
-      { icon: "TrendingUp",      title: "Predictive Analytics",       desc: "AI models that forecast sales trends, predict churn, and identify your highest-value growth opportunities before they happen." },
-      { icon: "Target",          title: "KPI Tracking & Alerts",      desc: "Define your key metrics and let AI monitor them automatically — instant alerts when something needs your attention." },
-      { icon: "Database",        title: "Data Unification",           desc: "We connect all your data sources — CRM, website, ads, POS, and more — into a single unified intelligence layer." },
+      { icon: "Search",          title: "Manual & Exploratory Testing", desc: "Experienced testers who think like your users and uncover issues automated tests miss." },
+      { icon: "Zap",             title: "Test Automation",              desc: "Automated UI, API and regression suites using Playwright, Cypress, Selenium and Appium." },
+      { icon: "Gauge",           title: "Performance Testing",          desc: "Load and stress testing to make sure your product performs under real-world traffic." },
+      { icon: "ShieldAlert",     title: "Security Testing",             desc: "Vulnerability scanning and security reviews to identify risks before attackers do." },
+      { icon: "Smartphone",      title: "Mobile & Cross-Browser",       desc: "Coverage across devices, operating systems and browsers your customers actually use." },
+      { icon: "GitBranch",       title: "QA in CI/CD",                  desc: "Quality gates integrated into your pipeline so every release is tested automatically." },
     ],
     process: [
-      { num: "01", title: "Data Audit",          desc: "We map every data source in your business, identify gaps, and design the intelligence architecture that gives you full visibility." },
-      { num: "02", title: "Dashboard Design",    desc: "Custom dashboards built around your specific KPIs and decision-making needs — reviewed and approved before we build." },
-      { num: "03", title: "AI Integration",      desc: "All data sources connected, AI models trained on your historical data, and automated reporting pipelines configured." },
-      { num: "04", title: "Insights & Action",   desc: "Monthly intelligence reviews where AI insights translate directly into business decisions and growth actions." },
-    ],
-    results: [
-      { value: "360°", label: "Visibility across all business functions" },
-      { value: "3x",   label: "Faster decision-making with AI insights" },
-      { value: "40%",  label: "Reduction in wasted marketing spend" },
+      { num: "01", title: "Assess",        desc: "We review your product, release process and current test coverage to identify quality risks." },
+      { num: "02", title: "Plan",          desc: "We define a test strategy, priorities and the right balance of manual and automated testing." },
+      { num: "03", title: "Execute",       desc: "Our engineers test, report and track defects through to resolution, sprint by sprint." },
+      { num: "04", title: "Automate",      desc: "We grow automated coverage over time, reducing regression effort and speeding up releases." },
     ],
     faq: [
-      { q: "What data sources can you connect?",          a: "Any platform with an API — Google Analytics, Meta Ads, CRMs, Shopify, POS systems, accounting software, and more." },
-      { q: "Do I need a data team to use this?",          a: "No. We build the entire system and deliver AI-generated reports in plain English. No technical knowledge needed." },
-      { q: "How is this different from Google Analytics?", a: "We unify all your data sources — not just website traffic — and layer AI analysis on top to surface insights GA can't show." },
-      { q: "Can the reports be customised?",               a: "Completely. Every dashboard and report is built around your specific business metrics, goals, and the decisions you need to make." },
+      { q: "Can QA engineers join our existing team?",  a: "Yes. QA engineers can be embedded in your sprints through staff augmentation, or we can run testing as a managed service." },
+      { q: "Do you write automated tests for existing products?", a: "Yes. We prioritise the most critical user journeys first, then expand coverage step by step." },
+      { q: "How do you report results?",                a: "Through your issue tracker, with clear reproduction steps, plus regular quality reports covering coverage, defects and release readiness." },
+      { q: "Do you test mobile apps?",                  a: "Yes. We test native and cross-platform apps on real devices and emulators across iOS and Android." },
     ],
   },
 ];
+
+/** Display order across the site: what we build first, then how we staff it. */
+const SERVICE_ORDER = [
+  "software-development",
+  "ai-solutions",
+  "staff-augmentation",
+  "dedicated-teams",
+  "cloud-devops",
+  "qa-testing",
+];
+
+export const SERVICES: ServiceData[] = SERVICE_ORDER.map((slug) => ALL_SERVICES.find((s) => s.slug === slug)!);
 
 export function getService(slug: string): ServiceData | undefined {
   return SERVICES.find((s) => s.slug === slug);
 }
 
 export const SERVICE_SLUGS = SERVICES.map((s) => s.slug);
+
+/** Options shown in enquiry forms. */
+export const ENQUIRY_OPTIONS = [...SERVICES.map((s) => s.short), "Not sure yet"];
+
+/** Service names used on the old website, kept so existing leads still filter correctly in admin. */
+export const LEGACY_SERVICE_NAMES = [
+  "Web Development", "AI Automation", "Digital Marketing", "SEO & Growth", "Branding", "Custom Software",
+];
+

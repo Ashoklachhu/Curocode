@@ -1,8 +1,8 @@
 export default function ServiceLoading() {
   return (
-    <div className="min-h-screen bg-[#07091a] text-white overflow-x-hidden animate-pulse">
+    <div className="min-h-screen bg-[#131313] text-white overflow-x-hidden animate-pulse">
       {/* Navbar placeholder */}
-      <div className="fixed top-0 left-0 right-0 h-16 bg-[#07091a]/80 border-b border-white/[0.05] z-50" />
+      <div className="fixed top-0 left-0 right-0 h-16 bg-[#131313]/80 border-b border-white/[0.05] z-50" />
 
       {/* Hero */}
       <section className="pt-36 pb-28 max-w-7xl mx-auto px-5 sm:px-6">

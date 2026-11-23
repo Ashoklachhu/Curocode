@@ -1,69 +1,75 @@
 import Link from "next/link";
 import { Phone, Mail, MapPin } from "lucide-react";
+import { SERVICES } from "@/lib/services-data";
 
-const footerLinks = {
-  Services: [
-    "Web Solutions",
-    "AI Automation",
-    "Digital Marketing",
-    "SEO & Growth",
-    "Branding",
-    "Maintenance",
-  ],
-  Company: ["About Us", "Our Work", "Careers", "Blog", "Contact"],
-  Legal: ["Privacy Policy", "Terms of Service", "Refund Policy"],
-};
+const columns = [
+  {
+    title: "Services",
+    links: SERVICES.map((s) => ({ label: s.title, href: `/services/${s.slug}` })),
+  },
+  {
+    title: "Company",
+    links: [
+      { label: "About Us", href: "/about" },
+      { label: "Engagement Models", href: "/#models" },
+      { label: "How It Works", href: "/#process" },
+      { label: "Global Presence", href: "/#global" },
+      { label: "Careers", href: "/careers" },
+      { label: "Contact", href: "/contact" },
+    ],
+  },
+  {
+    title: "Legal",
+    links: [
+      { label: "Privacy Policy", href: "#" },
+      { label: "Terms of Service", href: "#" },
+    ],
+  },
+];
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/[0.05] bg-[#040610]">
+    <footer className="border-t border-white/[0.05] bg-[#0c0c0c]">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 py-14 sm:py-16">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 sm:gap-10">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 sm:gap-10">
           {/* Brand */}
-          <div className="col-span-2 sm:col-span-3 lg:col-span-2 space-y-5">
+          <div className="col-span-2 sm:col-span-3 lg:col-span-3 space-y-5 lg:pr-6">
             <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-[0_0_20px_rgba(99,102,241,0.4)]">
-                <span className="text-white font-black text-lg leading-none">C</span>
+              <div className="w-9 h-9 rounded-xl bg-sand-300 flex items-center justify-center">
+                <span className="text-stone-950 font-extrabold text-lg leading-none">C</span>
               </div>
               <span className="text-white font-bold text-xl tracking-tight">
                 Curo<span className="gradient-text">Code</span>
               </span>
             </div>
-            <p className="text-slate-500 text-sm leading-relaxed max-w-xs">
-              Building digital experiences.
-              <br />
-              Automating success.
-              <br />
-              Growing your future.
+            <p className="text-stone-500 text-sm leading-relaxed max-w-sm">
+              A Dubai-based software and AI company building custom software, AI solutions and
+              engineering teams for businesses worldwide.
             </p>
             <div className="space-y-2.5">
-              <a href="tel:+971508817963" className="flex items-center gap-2.5 text-slate-500 hover:text-white text-sm transition-colors group">
-                <Phone size={14} className="text-indigo-400 flex-shrink-0" />
+              <a href="tel:+971508817963" className="flex items-center gap-2.5 text-stone-500 hover:text-white text-sm transition-colors">
+                <Phone size={14} className="text-sand-400 flex-shrink-0" />
                 +971 50 881 7963
               </a>
-              <a href="mailto:hello@omnigrowth.ae" className="flex items-center gap-2.5 text-slate-500 hover:text-white text-sm transition-colors group">
-                <Mail size={14} className="text-indigo-400 flex-shrink-0" />
+              <a href="mailto:hello@curocode.ae" className="flex items-center gap-2.5 text-stone-500 hover:text-white text-sm transition-colors">
+                <Mail size={14} className="text-sand-400 flex-shrink-0" />
                 hello@curocode.ae
               </a>
-              <div className="flex items-center gap-2.5 text-slate-500 text-sm">
-                <MapPin size={14} className="text-indigo-400 flex-shrink-0" />
-                Dubai, UAE
+              <div className="flex items-center gap-2.5 text-stone-500 text-sm">
+                <MapPin size={14} className="text-sand-400 flex-shrink-0" />
+                Dubai, United Arab Emirates
               </div>
             </div>
           </div>
 
-          {/* Links */}
-          {Object.entries(footerLinks).map(([cat, links]) => (
-            <div key={cat} className="space-y-4">
-              <h4 className="text-white font-semibold text-sm">{cat}</h4>
+          {columns.map((col) => (
+            <div key={col.title} className="space-y-4">
+              <h4 className="text-white font-semibold text-sm">{col.title}</h4>
               <ul className="space-y-2.5">
-                {links.map((link) => (
-                  <li key={link}>
-                    <Link
-                      href="#"
-                      className="text-slate-500 hover:text-slate-300 text-sm transition-colors duration-200"
-                    >
-                      {link}
+                {col.links.map((link) => (
+                  <li key={link.label}>
+                    <Link href={link.href} className="text-stone-500 hover:text-stone-300 text-sm transition-colors duration-200">
+                      {link.label}
                     </Link>
                   </li>
                 ))}
@@ -72,15 +78,11 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Bottom bar */}
         <div className="mt-14 pt-6 border-t border-white/[0.05] flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-slate-600 text-xs">
-            © {new Date().getFullYear()} CuroCode Digital. All rights reserved.
+          <p className="text-stone-600 text-xs">
+            © {new Date().getFullYear()} CuroCode. All rights reserved.
           </p>
-          <p className="text-slate-600 text-xs flex items-center gap-1.5">
-            Built with Strategy.{" "}
-            <span className="gradient-text font-semibold">Powered by AI.</span>
-          </p>
+          <p className="text-stone-600 text-xs">Dubai, UAE · Serving clients worldwide</p>
         </div>
       </div>
     </footer>

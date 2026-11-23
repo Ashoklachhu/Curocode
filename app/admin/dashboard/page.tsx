@@ -57,9 +57,9 @@ export default async function Dashboard() {
   const stats = await getStats();
 
   const cards = [
-    { label: "Total Leads",     value: stats.total,          icon: Users,      from: "from-indigo-500/20", to: "to-indigo-600/10", iconColor: "text-indigo-400",   glow: "rgba(99,102,241,0.2)" },
-    { label: "New Leads",       value: stats.newLeads,        icon: UserCheck,  from: "from-purple-500/20", to: "to-purple-600/10", iconColor: "text-purple-400",   glow: "rgba(139,92,246,0.2)" },
-    { label: "This Month",      value: stats.thisMonth,       icon: Calendar,   from: "from-cyan-500/20",   to: "to-cyan-600/10",   iconColor: "text-cyan-400",     glow: "rgba(6,182,212,0.2)" },
+    { label: "Total Leads",     value: stats.total,          icon: Users,      from: "from-sand-500/20", to: "to-sand-600/10", iconColor: "text-sand-400",   glow: "rgba(217,195,160,0.2)" },
+    { label: "New Leads",       value: stats.newLeads,        icon: UserCheck,  from: "from-sand-500/20", to: "to-sand-600/10", iconColor: "text-sand-400",   glow: "rgba(184,150,106,0.2)" },
+    { label: "This Month",      value: stats.thisMonth,       icon: Calendar,   from: "from-stone-500/20",   to: "to-stone-600/10",   iconColor: "text-stone-400",     glow: "rgba(138,154,134,0.2)" },
     { label: "Conversion Rate", value: `${stats.conversionRate}%`, icon: TrendingUp, from: "from-emerald-500/20", to: "to-emerald-600/10", iconColor: "text-emerald-400", glow: "rgba(16,185,129,0.2)" },
   ];
 
@@ -69,11 +69,11 @@ export default async function Dashboard() {
       <div className="flex items-center justify-between mb-8">
         <div>
           <h1 className="text-2xl font-bold text-white">Dashboard</h1>
-          <p className="text-slate-500 text-sm mt-0.5">Welcome back. Here&apos;s what&apos;s happening.</p>
+          <p className="text-stone-500 text-sm mt-0.5">Welcome back. Here&apos;s what&apos;s happening.</p>
         </div>
         <div className="flex items-center gap-3">
           <RefreshButton />
-          <Link href="/admin/leads" className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-sm font-semibold shadow-[0_0_20px_rgba(99,102,241,0.35)] hover:shadow-[0_0_30px_rgba(99,102,241,0.55)] transition-all">
+          <Link href="/admin/leads" className="flex items-center gap-2 px-4 py-2 rounded-xl bg-sand-300 text-stone-950 hover:bg-sand-200 text-sm font-semibold transition-all">
             View All Leads <ArrowRight size={14} />
           </Link>
         </div>
@@ -84,13 +84,13 @@ export default async function Dashboard() {
         {cards.map((card) => {
           const Icon = card.icon;
           return (
-            <div key={card.label} className="gradient-border rounded-2xl p-5 bg-[#0a0e20]/70 relative overflow-hidden group hover:scale-[1.01] transition-transform duration-200">
+            <div key={card.label} className="gradient-border rounded-2xl p-5 bg-[#161616]/70 relative overflow-hidden group hover:scale-[1.01] transition-transform duration-200">
               <div className="absolute top-0 right-0 w-24 h-24 rounded-full blur-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: card.glow }} />
               <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${card.from} ${card.to} flex items-center justify-center mb-4`}>
                 <Icon size={19} className={card.iconColor} />
               </div>
-              <div className="text-3xl font-black text-white mb-1">{card.value}</div>
-              <div className="text-slate-500 text-xs">{card.label}</div>
+              <div className="text-3xl font-extrabold text-white mb-1">{card.value}</div>
+              <div className="text-stone-500 text-xs">{card.label}</div>
             </div>
           );
         })}
@@ -98,54 +98,54 @@ export default async function Dashboard() {
 
       <div className="grid lg:grid-cols-3 gap-6">
         {/* Recent Leads */}
-        <div className="lg:col-span-2 gradient-border rounded-2xl bg-[#0a0e20]/70 overflow-hidden">
+        <div className="lg:col-span-2 gradient-border rounded-2xl bg-[#161616]/70 overflow-hidden">
           <div className="px-6 py-4 border-b border-white/[0.05] flex items-center justify-between">
             <h2 className="text-white font-semibold">Recent Leads</h2>
-            <Link href="/admin/leads" className="text-indigo-400 hover:text-indigo-300 text-xs font-medium flex items-center gap-1 transition-colors">
+            <Link href="/admin/leads" className="text-sand-400 hover:text-sand-300 text-xs font-medium flex items-center gap-1 transition-colors">
               View all <ArrowRight size={12} />
             </Link>
           </div>
           <div className="divide-y divide-white/[0.04]">
             {stats.recent.length === 0 && (
-              <div className="px-6 py-10 text-center text-slate-600 text-sm">No leads yet — share your website to start getting leads!</div>
+              <div className="px-6 py-10 text-center text-stone-600 text-sm">No leads yet — share your website to start getting leads!</div>
             )}
             {stats.recent.map((lead) => (
               <Link key={lead.id} href={`/admin/leads/${lead.id}`} className="flex items-center gap-4 px-6 py-3.5 hover:bg-white/[0.02] transition-colors group">
-                <div className="w-9 h-9 rounded-full bg-gradient-to-br from-indigo-500/20 to-purple-500/20 border border-white/[0.08] flex items-center justify-center flex-shrink-0">
-                  <span className="text-sm font-bold text-indigo-300">{lead.name[0]?.toUpperCase()}</span>
+                <div className="w-9 h-9 rounded-full bg-gradient-to-br from-sand-500/20 to-sand-500/20 border border-white/[0.08] flex items-center justify-center flex-shrink-0">
+                  <span className="text-sm font-bold text-sand-300">{lead.name[0]?.toUpperCase()}</span>
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="text-sm font-medium text-white group-hover:text-indigo-300 transition-colors truncate">{lead.name}</div>
-                  <div className="text-xs text-slate-600 truncate">{lead.email}</div>
+                  <div className="text-sm font-medium text-white group-hover:text-sand-300 transition-colors truncate">{lead.name}</div>
+                  <div className="text-xs text-stone-600 truncate">{lead.email}</div>
                 </div>
-                <div className="hidden sm:block text-xs text-slate-600 flex-shrink-0 max-w-[120px] truncate">{lead.service}</div>
+                <div className="hidden sm:block text-xs text-stone-600 flex-shrink-0 max-w-[120px] truncate">{lead.service}</div>
                 <LeadStatusBadge status={lead.status} />
-                <div className="text-xs text-slate-600 flex-shrink-0 w-16 text-right">{timeAgo(lead.created_at)}</div>
+                <div className="text-xs text-stone-600 flex-shrink-0 w-16 text-right">{timeAgo(lead.created_at)}</div>
               </Link>
             ))}
           </div>
         </div>
 
         {/* By Service */}
-        <div className="gradient-border rounded-2xl bg-[#0a0e20]/70 overflow-hidden">
+        <div className="gradient-border rounded-2xl bg-[#161616]/70 overflow-hidden">
           <div className="px-6 py-4 border-b border-white/[0.05]">
             <h2 className="text-white font-semibold">Leads by Service</h2>
           </div>
           <div className="p-6 space-y-4">
             {stats.byService.length === 0 && (
-              <p className="text-slate-600 text-sm text-center py-4">No data yet</p>
+              <p className="text-stone-600 text-sm text-center py-4">No data yet</p>
             )}
             {stats.byService.map((item) => {
               const pct = stats.total ? Math.round((item.count / stats.total) * 100) : 0;
               return (
                 <div key={item.service}>
                   <div className="flex justify-between text-xs mb-1.5">
-                    <span className="text-slate-400 truncate">{item.service}</span>
+                    <span className="text-stone-400 truncate">{item.service}</span>
                     <span className="text-white font-semibold ml-2">{item.count}</span>
                   </div>
                   <div className="h-1.5 bg-white/[0.05] rounded-full overflow-hidden">
-                    <div className="h-full rounded-full bg-gradient-to-r from-indigo-500 to-purple-500"
-                      style={{ width: `${pct}%`, boxShadow: "0 0 8px rgba(99,102,241,0.5)" }} />
+                    <div className="h-full rounded-full bg-sand-400"
+                      style={{ width: `${pct}%`, boxShadow: "0 0 8px rgba(217,195,160,0.5)" }} />
                   </div>
                 </div>
               );

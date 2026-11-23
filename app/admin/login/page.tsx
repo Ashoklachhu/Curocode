@@ -33,16 +33,16 @@ export default function AdminLogin() {
   };
 
   return (
-    <div className="min-h-screen bg-[#05070f] flex items-center justify-center px-4 relative overflow-hidden">
+    <div className="min-h-screen bg-[#111111] flex items-center justify-center px-4 relative overflow-hidden">
       {/* Background glows */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-purple-600/8 rounded-full blur-[80px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-sand-600/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-sand-600/8 rounded-full blur-[80px] pointer-events-none" />
 
       <div className="w-full max-w-md relative z-10">
         {/* Logo */}
         <div className="flex items-center justify-center gap-2.5 mb-8">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-[0_0_20px_rgba(99,102,241,0.5)]">
-            <span className="text-white font-black text-xl">O</span>
+          <div className="w-10 h-10 rounded-xl bg-sand-300 flex items-center justify-center">
+            <span className="text-stone-950 font-extrabold text-xl">O</span>
           </div>
           <span className="text-white font-bold text-2xl tracking-tight">
             Omni<span className="gradient-text"> Growth</span>
@@ -50,46 +50,46 @@ export default function AdminLogin() {
         </div>
 
         {/* Card */}
-        <div className="gradient-border rounded-2xl p-8 bg-[#0a0e20]/90 backdrop-blur-xl shadow-[0_32px_80px_rgba(0,0,0,0.6)]">
+        <div className="gradient-border rounded-2xl p-8 bg-[#161616]/90 backdrop-blur-xl shadow-[0_32px_80px_rgba(0,0,0,0.6)]">
           <div className="mb-7">
             <h1 className="text-white text-2xl font-bold">Admin Portal</h1>
-            <p className="text-slate-500 text-sm mt-1">Sign in to manage your leads & CRM</p>
+            <p className="text-stone-500 text-sm mt-1">Sign in to manage your leads & CRM</p>
           </div>
 
           <form onSubmit={handleLogin} className="space-y-4">
             {/* Email */}
             <div>
-              <label className="text-xs text-slate-500 font-medium mb-1.5 block">Email Address</label>
+              <label className="text-xs text-stone-500 font-medium mb-1.5 block">Email Address</label>
               <div className="relative">
-                <Mail size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none" />
+                <Mail size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-stone-500 pointer-events-none" />
                 <input
                   type="email"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="admin@omnigrowth.ae"
-                  className="w-full pl-10 pr-4 py-3 rounded-xl bg-white/[0.05] border border-white/[0.09] text-white placeholder:text-slate-600 text-sm focus:outline-none focus:border-indigo-500/60 focus:shadow-[0_0_0_3px_rgba(99,102,241,0.12)] transition-all duration-200"
+                  className="w-full pl-10 pr-4 py-3 rounded-xl bg-white/[0.05] border border-white/[0.09] text-white placeholder:text-stone-600 text-sm focus:outline-none focus:border-sand-500/60 transition-all duration-200"
                 />
               </div>
             </div>
 
             {/* Password */}
             <div>
-              <label className="text-xs text-slate-500 font-medium mb-1.5 block">Password</label>
+              <label className="text-xs text-stone-500 font-medium mb-1.5 block">Password</label>
               <div className="relative">
-                <Lock size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none" />
+                <Lock size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-stone-500 pointer-events-none" />
                 <input
                   type={showPassword ? "text" : "password"}
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
-                  className="w-full pl-10 pr-11 py-3 rounded-xl bg-white/[0.05] border border-white/[0.09] text-white placeholder:text-slate-600 text-sm focus:outline-none focus:border-indigo-500/60 focus:shadow-[0_0_0_3px_rgba(99,102,241,0.12)] transition-all duration-200"
+                  className="w-full pl-10 pr-11 py-3 rounded-xl bg-white/[0.05] border border-white/[0.09] text-white placeholder:text-stone-600 text-sm focus:outline-none focus:border-sand-500/60 transition-all duration-200"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300 transition-colors"
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-stone-500 hover:text-stone-300 transition-colors"
                 >
                   {showPassword ? <EyeOff size={15} /> : <Eye size={15} />}
                 </button>
@@ -108,7 +108,7 @@ export default function AdminLogin() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold text-sm shadow-[0_0_25px_rgba(99,102,241,0.4)] hover:shadow-[0_0_40px_rgba(99,102,241,0.6)] transition-all duration-300 hover:scale-[1.01] disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2 mt-2"
+              className="w-full py-3.5 rounded-xl bg-sand-300 text-stone-950 hover:bg-sand-200 font-semibold text-sm transition-all duration-300 hover:scale-[1.01] disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2 mt-2"
             >
               {loading ? (
                 <>
@@ -123,7 +123,7 @@ export default function AdminLogin() {
           </form>
         </div>
 
-        <p className="text-center text-slate-600 text-xs mt-6">
+        <p className="text-center text-stone-600 text-xs mt-6">
           CuroCode Admin Portal · Restricted Access
         </p>
       </div>

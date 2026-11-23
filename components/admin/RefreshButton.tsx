@@ -16,7 +16,7 @@ export default function RefreshButton() {
   return (
     <button
       onClick={handleRefresh}
-      className="flex items-center gap-2 px-4 py-2 rounded-xl border border-white/[0.08] text-slate-400 hover:text-white hover:border-white/20 text-sm transition-all"
+      className="flex items-center gap-2 px-4 py-2 rounded-xl border border-white/[0.08] text-stone-400 hover:text-white hover:border-white/20 text-sm transition-all"
     >
       <RefreshCw size={14} className={spinning ? "animate-spin" : ""} />
       Refresh

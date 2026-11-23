@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Manrope } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
-const inter = Inter({
+const manrope = Manrope({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-manrope",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "CuroCode — AI-Powered Digital Solutions for UAE Businesses",
+  title: "CuroCode | Software Development, AI Solutions & IT Teams, Dubai",
   description:
-    "We build. We automate. We grow your business. CuroCode delivers premium websites, AI automation, and performance-driven marketing for UAE businesses.",
-  keywords: "AI automation, web solutions, digital marketing, UAE, Dubai, custom software",
+    "CuroCode is a Dubai-based software and AI company. We build custom software and AI solutions, and provide skilled engineers and dedicated teams to businesses worldwide.",
+  keywords: "software development, AI solutions, AI automation, chatbots, IT staff augmentation, dedicated development team, IT outsourcing, Dubai, UAE",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -30,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} antialiased`}>
+      <body className={`${manrope.variable} font-sans antialiased`}>
         {children}
         <Script
           src="https://kuro-production-280f.up.railway.app/widget.js"

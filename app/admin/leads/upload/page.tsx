@@ -10,12 +10,10 @@ import {
   AlertCircle, Download, Trash2, Save, X, ChevronDown,
 } from "lucide-react";
 import { LEAD_SOURCES } from "@/lib/lead-sources";
+import { ENQUIRY_OPTIONS } from "@/lib/services-data";
 import LeadStatusBadge from "@/components/admin/LeadStatusBadge";
 
-const SERVICES = [
-  "Web Development", "AI Automation", "Digital Marketing",
-  "SEO & Growth", "Branding", "Custom Software", "Other",
-];
+const SERVICES = [...ENQUIRY_OPTIONS, "Other"];
 const STATUSES = ["new", "contacted", "proposal", "converted", "lost"];
 
 /* ─────────────── Types ─────────────── */
@@ -61,7 +59,7 @@ function normaliseRow(raw: Record<string, string>, defaultSource: string): Omit<
 /* ─────────────── Manual add form ─────────────── */
 function ManualForm({ onSuccess }: { onSuccess: () => void }) {
   const [form, setForm] = useState({
-    name: "", email: "", phone: "", service: "Web Development",
+    name: "", email: "", phone: "", service: ENQUIRY_OPTIONS[0],
     status: "new", source: "manual", notes: "",
   });
   const [saving, setSaving] = useState(false);
@@ -83,12 +81,12 @@ function ManualForm({ onSuccess }: { onSuccess: () => void }) {
 
   const Field = ({ label, children }: { label: string; children: React.ReactNode }) => (
     <div>
-      <label className="text-xs text-slate-500 font-medium mb-1.5 block">{label}</label>
+      <label className="text-xs text-stone-500 font-medium mb-1.5 block">{label}</label>
       {children}
     </div>
   );
 
-  const inputCls = "w-full px-4 py-2.5 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-indigo-500/50 focus:shadow-[0_0_0_3px_rgba(99,102,241,0.10)] transition-all";
+  const inputCls = "w-full px-4 py-2.5 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-sand-500/50 transition-all";
   const selectCls = inputCls + " appearance-none cursor-pointer";
 
   return (
@@ -106,25 +104,25 @@ function ManualForm({ onSuccess }: { onSuccess: () => void }) {
         <Field label="Service Interest">
           <div className="relative">
             <select value={form.service} onChange={e => setForm({...form, service: e.target.value})} className={selectCls}>
-              {SERVICES.map(s => <option key={s} value={s} style={{background:"#0a0e20"}}>{s}</option>)}
+              {SERVICES.map(s => <option key={s} value={s} style={{background:"#161616"}}>{s}</option>)}
             </select>
-            <ChevronDown size={13} className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none" />
+            <ChevronDown size={13} className="absolute right-3.5 top-1/2 -translate-y-1/2 text-stone-500 pointer-events-none" />
           </div>
         </Field>
         <Field label="Lead Source">
           <div className="relative">
             <select value={form.source} onChange={e => setForm({...form, source: e.target.value})} className={selectCls}>
-              {LEAD_SOURCES.map(s => <option key={s.id} value={s.id} style={{background:"#0a0e20"}}>{s.emoji} {s.label}</option>)}
+              {LEAD_SOURCES.map(s => <option key={s.id} value={s.id} style={{background:"#161616"}}>{s.emoji} {s.label}</option>)}
             </select>
-            <ChevronDown size={13} className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none" />
+            <ChevronDown size={13} className="absolute right-3.5 top-1/2 -translate-y-1/2 text-stone-500 pointer-events-none" />
           </div>
         </Field>
         <Field label="Pipeline Status">
           <div className="relative">
             <select value={form.status} onChange={e => setForm({...form, status: e.target.value})} className={selectCls}>
-              {STATUSES.map(s => <option key={s} value={s} style={{background:"#0a0e20"}}>{s.charAt(0).toUpperCase()+s.slice(1)}</option>)}
+              {STATUSES.map(s => <option key={s} value={s} style={{background:"#161616"}}>{s.charAt(0).toUpperCase()+s.slice(1)}</option>)}
             </select>
-            <ChevronDown size={13} className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none" />
+            <ChevronDown size={13} className="absolute right-3.5 top-1/2 -translate-y-1/2 text-stone-500 pointer-events-none" />
           </div>
         </Field>
       </div>
@@ -137,7 +135,7 @@ function ManualForm({ onSuccess }: { onSuccess: () => void }) {
         </div>
       )}
       <button type="submit" disabled={saving}
-        className="w-full py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold text-sm shadow-[0_0_20px_rgba(99,102,241,0.35)] hover:shadow-[0_0_30px_rgba(99,102,241,0.55)] transition-all disabled:opacity-60 flex items-center justify-center gap-2">
+        className="w-full py-3 rounded-xl bg-sand-300 text-stone-950 hover:bg-sand-200 font-semibold text-sm transition-all disabled:opacity-60 flex items-center justify-center gap-2">
         {saving ? <><svg className="animate-spin h-4 w-4" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"/></svg> Saving...</> : <><Plus size={16}/> Add Lead</>}
       </button>
     </form>
@@ -229,7 +227,7 @@ export default function UploadPage() {
   };
 
   const downloadTemplate = () => {
-    const csv = "name,email,phone,service,source,status,notes\nAhmed Al Mansoori,ahmed@company.ae,+971501234567,Web Development,instagram,new,Interested in e-commerce site\n";
+    const csv = "name,email,phone,service,source,status,notes\nAhmed Al Mansoori,ahmed@company.ae,+971501234567,Staff Augmentation,linkedin,new,Needs two senior React developers\n";
     const blob = new Blob([csv], { type: "text/csv" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a"); a.href = url; a.download = "leads-template.csv"; a.click();
@@ -240,12 +238,12 @@ export default function UploadPage() {
       {/* Header */}
       <div className="flex items-center justify-between mb-8">
         <div className="flex items-center gap-4">
-          <Link href="/admin/leads" className="p-2 rounded-xl border border-white/[0.08] text-slate-500 hover:text-white hover:border-white/20 transition-all">
+          <Link href="/admin/leads" className="p-2 rounded-xl border border-white/[0.08] text-stone-500 hover:text-white hover:border-white/20 transition-all">
             <ArrowLeft size={16} />
           </Link>
           <div>
             <h1 className="text-2xl font-bold text-white">Add Leads</h1>
-            <p className="text-slate-500 text-sm mt-0.5">Import from file or add manually</p>
+            <p className="text-stone-500 text-sm mt-0.5">Import from file or add manually</p>
           </div>
         </div>
       </div>
@@ -257,9 +255,9 @@ export default function UploadPage() {
           { id: "manual", label: "✏️ Add Manually", desc: "Single lead" },
         ].map((t) => (
           <button key={t.id} onClick={() => setTab(t.id as "upload" | "manual")}
-            className={`flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium transition-all ${tab === t.id ? "bg-indigo-600 text-white shadow-[0_0_14px_rgba(99,102,241,0.4)]" : "text-slate-500 hover:text-white"}`}>
+            className={`flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium transition-all ${tab === t.id ? "bg-sand-300 text-stone-950" : "text-stone-500 hover:text-white"}`}>
             {t.label}
-            <span className={`text-[10px] ${tab === t.id ? "text-indigo-200" : "text-slate-600"}`}>{t.desc}</span>
+            <span className={`text-[10px] ${tab === t.id ? "text-sand-200" : "text-stone-600"}`}>{t.desc}</span>
           </button>
         ))}
       </div>
@@ -270,36 +268,36 @@ export default function UploadPage() {
           {/* Default source + download template row */}
           <div className="flex flex-wrap items-center gap-4">
             <div className="flex items-center gap-3">
-              <label className="text-sm text-slate-400 font-medium whitespace-nowrap">Default source for this import:</label>
+              <label className="text-sm text-stone-400 font-medium whitespace-nowrap">Default source for this import:</label>
               <div className="relative">
                 <select value={defaultSource} onChange={e => setDefaultSource(e.target.value)}
-                  className="pl-4 pr-8 py-2 rounded-xl bg-white/[0.05] border border-white/[0.08] text-slate-200 text-sm focus:outline-none focus:border-indigo-500/50 appearance-none cursor-pointer">
-                  {LEAD_SOURCES.map(s => <option key={s.id} value={s.id} style={{background:"#0a0e20"}}>{s.emoji} {s.label}</option>)}
+                  className="pl-4 pr-8 py-2 rounded-xl bg-white/[0.05] border border-white/[0.08] text-stone-200 text-sm focus:outline-none focus:border-sand-500/50 appearance-none cursor-pointer">
+                  {LEAD_SOURCES.map(s => <option key={s.id} value={s.id} style={{background:"#161616"}}>{s.emoji} {s.label}</option>)}
                 </select>
-                <ChevronDown size={12} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none" />
+                <ChevronDown size={12} className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-500 pointer-events-none" />
               </div>
             </div>
             <button onClick={downloadTemplate}
-              className="ml-auto flex items-center gap-2 px-4 py-2 rounded-xl border border-white/[0.08] text-slate-400 hover:text-white hover:border-white/20 text-sm transition-all">
+              className="ml-auto flex items-center gap-2 px-4 py-2 rounded-xl border border-white/[0.08] text-stone-400 hover:text-white hover:border-white/20 text-sm transition-all">
               <Download size={14} /> Download Template
             </button>
           </div>
 
           {/* Drop zone */}
           <div
-            className={`relative border-2 border-dashed rounded-2xl p-12 text-center transition-all cursor-pointer ${dragOver ? "border-indigo-500 bg-indigo-500/8" : "border-white/[0.10] hover:border-white/20 hover:bg-white/[0.02]"}`}
+            className={`relative border-2 border-dashed rounded-2xl p-12 text-center transition-all cursor-pointer ${dragOver ? "border-sand-500 bg-sand-500/8" : "border-white/[0.10] hover:border-white/20 hover:bg-white/[0.02]"}`}
             onDragOver={(e) => { e.preventDefault(); setDragOver(true); }}
             onDragLeave={() => setDragOver(false)}
             onDrop={handleDrop}
             onClick={() => fileRef.current?.click()}
           >
             <input ref={fileRef} type="file" accept=".csv,.xlsx,.xls" onChange={handleFileChange} className="hidden" />
-            <div className="w-14 h-14 rounded-2xl bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center mx-auto mb-4">
-              <Upload size={24} className="text-indigo-400" />
+            <div className="w-14 h-14 rounded-2xl bg-sand-500/15 border border-sand-500/30 flex items-center justify-center mx-auto mb-4">
+              <Upload size={24} className="text-sand-400" />
             </div>
             <p className="text-white font-semibold text-lg mb-1">Drop your file here</p>
-            <p className="text-slate-500 text-sm">or <span className="text-indigo-400 underline underline-offset-2">browse to upload</span></p>
-            <p className="text-slate-600 text-xs mt-3">Supports .csv, .xlsx, .xls · Max 500 rows</p>
+            <p className="text-stone-500 text-sm">or <span className="text-sand-400 underline underline-offset-2">browse to upload</span></p>
+            <p className="text-stone-600 text-xs mt-3">Supports .csv, .xlsx, .xls · Max 500 rows</p>
           </div>
 
           {/* Result banner */}
@@ -321,29 +319,29 @@ export default function UploadPage() {
               {/* Summary */}
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4 text-sm">
-                  <span className="text-slate-400"><span className="text-white font-bold">{rows.length}</span> rows parsed</span>
+                  <span className="text-stone-400"><span className="text-white font-bold">{rows.length}</span> rows parsed</span>
                   {validRows.length > 0 && <span className="text-emerald-400"><span className="font-bold">{validRows.length}</span> valid</span>}
                   {invalidRows.length > 0 && <span className="text-red-400"><span className="font-bold">{invalidRows.length}</span> with errors</span>}
                 </div>
                 <div className="flex items-center gap-2">
-                  <button onClick={() => setRows([])} className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-white/[0.08] text-slate-500 hover:text-white text-xs transition-all">
+                  <button onClick={() => setRows([])} className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-white/[0.08] text-stone-500 hover:text-white text-xs transition-all">
                     <X size={12} /> Clear
                   </button>
                   <button onClick={handleImport} disabled={importing || validRows.length === 0}
-                    className="flex items-center gap-2 px-5 py-2 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-sm font-semibold shadow-[0_0_16px_rgba(99,102,241,0.35)] hover:shadow-[0_0_24px_rgba(99,102,241,0.55)] transition-all disabled:opacity-60">
+                    className="flex items-center gap-2 px-5 py-2 rounded-xl bg-sand-300 text-stone-950 hover:bg-sand-200 text-sm font-semibold transition-all disabled:opacity-60">
                     {importing ? <><svg className="animate-spin h-3.5 w-3.5" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"/></svg> Importing...</> : <><Save size={14}/> Import {validRows.length} Leads</>}
                   </button>
                 </div>
               </div>
 
               {/* Table */}
-              <div className="gradient-border rounded-2xl overflow-hidden bg-[#0a0e20]/70">
+              <div className="gradient-border rounded-2xl overflow-hidden bg-[#161616]/70">
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
                     <thead>
                       <tr className="border-b border-white/[0.06]">
                         {["", "Name", "Email", "Phone", "Service", "Source", "Status", ""].map((h, i) => (
-                          <th key={i} className="text-left px-4 py-3 text-xs font-semibold text-slate-600 uppercase tracking-wider whitespace-nowrap">{h}</th>
+                          <th key={i} className="text-left px-4 py-3 text-xs font-semibold text-stone-600 uppercase tracking-wider whitespace-nowrap">{h}</th>
                         ))}
                       </tr>
                     </thead>
@@ -360,26 +358,26 @@ export default function UploadPage() {
                           {(["name","email","phone"] as const).map(f => (
                             <td key={f} className="px-3 py-2">
                               <input value={row[f]} onChange={e => updateRow(row._id, f, e.target.value)}
-                                className={`w-full min-w-[120px] px-2.5 py-1.5 rounded-lg bg-white/[0.04] border text-white text-xs focus:outline-none focus:border-indigo-500/50 transition-all ${row._errors.some(e => e.toLowerCase().includes(f)) ? "border-red-500/40" : "border-white/[0.06]"}`} />
+                                className={`w-full min-w-[120px] px-2.5 py-1.5 rounded-lg bg-white/[0.04] border text-white text-xs focus:outline-none focus:border-sand-500/50 transition-all ${row._errors.some(e => e.toLowerCase().includes(f)) ? "border-red-500/40" : "border-white/[0.06]"}`} />
                             </td>
                           ))}
                           <td className="px-3 py-2">
                             <select value={row.service} onChange={e => updateRow(row._id, "service", e.target.value)}
-                              className="min-w-[130px] px-2.5 py-1.5 rounded-lg bg-white/[0.04] border border-white/[0.06] text-slate-300 text-xs focus:outline-none appearance-none cursor-pointer">
-                              {SERVICES.map(s => <option key={s} value={s} style={{background:"#0a0e20"}}>{s}</option>)}
+                              className="min-w-[130px] px-2.5 py-1.5 rounded-lg bg-white/[0.04] border border-white/[0.06] text-stone-300 text-xs focus:outline-none appearance-none cursor-pointer">
+                              {SERVICES.map(s => <option key={s} value={s} style={{background:"#161616"}}>{s}</option>)}
                             </select>
                           </td>
                           <td className="px-3 py-2">
                             <select value={row.source} onChange={e => updateRow(row._id, "source", e.target.value)}
-                              className="min-w-[130px] px-2.5 py-1.5 rounded-lg bg-white/[0.04] border border-white/[0.06] text-slate-300 text-xs focus:outline-none appearance-none cursor-pointer">
-                              {LEAD_SOURCES.map(s => <option key={s.id} value={s.id} style={{background:"#0a0e20"}}>{s.emoji} {s.label}</option>)}
+                              className="min-w-[130px] px-2.5 py-1.5 rounded-lg bg-white/[0.04] border border-white/[0.06] text-stone-300 text-xs focus:outline-none appearance-none cursor-pointer">
+                              {LEAD_SOURCES.map(s => <option key={s.id} value={s.id} style={{background:"#161616"}}>{s.emoji} {s.label}</option>)}
                             </select>
                           </td>
                           <td className="px-3 py-2">
                             <LeadStatusBadge status={row.status} />
                           </td>
                           <td className="px-3 py-2">
-                            <button onClick={() => removeRow(row._id)} className="p-1.5 rounded-lg hover:bg-red-500/10 text-slate-600 hover:text-red-400 transition-all">
+                            <button onClick={() => removeRow(row._id)} className="p-1.5 rounded-lg hover:bg-red-500/10 text-stone-600 hover:text-red-400 transition-all">
                               <Trash2 size={13} />
                             </button>
                           </td>
@@ -391,7 +389,7 @@ export default function UploadPage() {
               </div>
 
               {invalidRows.length > 0 && (
-                <p className="text-xs text-slate-600 flex items-center gap-1.5">
+                <p className="text-xs text-stone-600 flex items-center gap-1.5">
                   <AlertCircle size={12} className="text-amber-400" />
                   Rows with errors will be skipped. Fix them above or remove them to proceed.
                 </p>
@@ -404,9 +402,9 @@ export default function UploadPage() {
       {/* ── MANUAL TAB ── */}
       {tab === "manual" && (
         <div className="max-w-2xl">
-          <div className="gradient-border rounded-2xl p-7 bg-[#0a0e20]/70">
+          <div className="gradient-border rounded-2xl p-7 bg-[#161616]/70">
             <h2 className="text-white font-semibold mb-6 flex items-center gap-2">
-              <Plus size={16} className="text-indigo-400" />
+              <Plus size={16} className="text-sand-400" />
               Add a New Lead
             </h2>
             <ManualForm onSuccess={() => router.push("/admin/leads")} />

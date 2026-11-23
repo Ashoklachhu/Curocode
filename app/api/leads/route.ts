@@ -4,7 +4,13 @@ import { createClient } from "@supabase/supabase-js";
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { name, email, phone, service } = body;
+    const { name, email, phone, service, notes, source } = body;
+
+    // Optional fields: a free-text message and the page the form was sent from.
+    const cleanNotes =
+      typeof notes === "string" && notes.trim() ? notes.trim().slice(0, 2000) : null;
+    const cleanSource =
+      typeof source === "string" && /^[a-z0-9_-]{1,60}$/.test(source) ? source : "hero_form";
 
     // Basic server-side validation
     if (!name || !email || !phone || !service) {
@@ -49,7 +55,8 @@ export async function POST(req: NextRequest) {
         phone: phone.trim(),
         service,
         status: "new",
-        source: "hero_form",
+        source: cleanSource,
+        notes: cleanNotes,
       },
     ]);
 
