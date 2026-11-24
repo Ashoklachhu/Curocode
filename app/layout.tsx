@@ -34,7 +34,7 @@ export default function RootLayout({
         {children}
         <Script
           src="https://kuro-production-280f.up.railway.app/widget.js"
-          data-token="b648ec04-13f9-4fc2-9323-e43c6fc9dabe"
+          data-token="7d8ec412-0652-4b33-8470-abfbf5716310"
           strategy="afterInteractive"
         />
       </body>
