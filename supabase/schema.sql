@@ -44,6 +44,15 @@ create policy "Anyone can submit a lead"
 
 -- Service role bypass (automatic — no policy needed for service_role)
 
+-- ── TABLE ACCESS ────────────────────────────────────────────
+-- Newer Supabase projects no longer expose new tables to the API automatically.
+-- The website form may only add leads; the admin panel uses the service role.
+grant usage on schema public to anon, service_role;
+grant insert on public.leads to anon;
+grant all on public.leads to service_role;
+-- Remove default extras so public roles can only do what is granted above.
+revoke truncate, trigger, references on public.leads from anon, authenticated;
+
 -- ── INDEXES ─────────────────────────────────────────────────
 create index if not exists leads_email_idx     on public.leads (email);
 create index if not exists leads_status_idx    on public.leads (status);
